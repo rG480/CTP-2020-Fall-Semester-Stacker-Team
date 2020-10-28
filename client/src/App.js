@@ -29,6 +29,7 @@ function Navigation(props) {
             About Us
           </NavLink>
         </li>
+        <button onClick={props.toggler}>login</button>
       </ul>
     </nav>
   );
@@ -36,10 +37,29 @@ function Navigation(props) {
 
 
 class App extends React.Component {
+  constructor(props){
+    super(props)
+    this.state={
+      showModal:false
+    }
+    this.toggleModal = this.handleSelect.bind(this)
+  }
+  handleSelect(){
+    console.log(this.state.showModal)
+    this.setState({
+      showModal: this.state.showModal ? false : true
+    }
+
+    )
+    console.log(this.state.showModal)
+    if (this.state.showModal===true){
+      alert("Nice")
+    }
+  }
   render() {
     return (
         <Router>
-          <Navigation />
+          <Navigation toggler={this.toggleModal}/>
           <div className="container-fluid text-center">
             <div className="row justify-content-center">
               <Switch>
