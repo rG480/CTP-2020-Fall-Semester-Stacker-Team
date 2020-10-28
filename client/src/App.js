@@ -10,7 +10,8 @@ import PostsListPage from './pages/PostsListPage';
 import PostFormPage from './pages/PostFormPage';
 import ShowPostPage from './pages/ShowPostPage';
 import AboutUsPage from './pages/AboutUsPage';
-
+import Modal from 'react-bootstrap/Modal'
+import Button from 'react-bootstrap/Button'
 import './App.css';
 
 
@@ -34,7 +35,24 @@ function Navigation(props) {
     </nav>
   );
 }
-
+function LoginModal(props){
+  console.log(props.toggleModal)
+  return(<Modal show={props.show} onHide={props.hide}>
+    <Modal.Header closeButton>
+      <Modal.Title>Modal title</Modal.Title>
+    </Modal.Header>
+  
+    <Modal.Body>
+      <p>Modal body text goes here.</p>
+    </Modal.Body>
+  
+    <Modal.Footer>
+      <Button variant="secondary">Close</Button>
+      <Button variant="primary">Save changes</Button>
+    </Modal.Footer>
+  </Modal>
+  );
+}
 
 class App extends React.Component {
   constructor(props){
@@ -60,8 +78,11 @@ class App extends React.Component {
     return (
         <Router>
           <Navigation toggler={this.toggleModal}/>
+         
           <div className="container-fluid text-center">
+         
             <div className="row justify-content-center">
+            <LoginModal show={this.state.showModal} hide= {this.toggleModal}></LoginModal>
               <Switch>
                 <Route path="/posts/new" component={PostFormPage} />
                 <Route path="/posts/:id" component={ShowPostPage} />
