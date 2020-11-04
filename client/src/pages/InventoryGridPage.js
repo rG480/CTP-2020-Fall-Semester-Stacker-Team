@@ -1,16 +1,10 @@
 import React from 'react';
+import ItemGrid from '../components/ItemGrid';
+
 
 function InventoryGridPage(props) {
   return (
-    <div className="content">
-        <div>
-            <p className="collection-name">Collection Name</p>
-        </div>
-        <div className="inventory">
-        <p>hello dummy</p>
-        
-        </div>
-    </div>
+    <ItemGrid />
   );
 }
 
