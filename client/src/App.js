@@ -9,6 +9,7 @@ import {
 import './App.css';
 import AboutUsPage from './pages/AboutUsPage';
 import InventoryPage from './pages/InventoryPage';
+import InventoryGridPage from './pages/InventoryGridPage';
 
 
 function Navigation(props) {
@@ -37,6 +38,11 @@ function Navigation(props) {
             About Us
           </NavLink>
         </li>
+        <li className="nav-item">
+          <NavLink className="nav-link" exact to="/inventoryGridPage">
+            Inventory Grid
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );
@@ -53,6 +59,7 @@ class App extends React.Component {
               <Switch>
                 <Route path="/collection" component={InventoryPage}/>
                 <Route path="/about-us" component={AboutUsPage} />
+                <Route path="/inventoryGridPage" component={InventoryGridPage}/>
               </Switch>
             </div>
           </div>
