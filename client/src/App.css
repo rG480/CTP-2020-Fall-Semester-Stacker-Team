@@ -23,12 +23,6 @@
 */
 
 /* Temp until table's replaced */
-.inventory-table{
-  border: 2px solid black;
-}
-
-th, td{
-  border-right: 2px solid black;
-  padding-left: 2px;
-  padding-right: 3px;
+table{
+  width: 1500px;
 }
