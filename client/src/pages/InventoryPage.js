@@ -1,7 +1,7 @@
 import React from 'react';
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
-
+import Table from '../components/Table'
 class AddItemModal extends React.Component{
   constructor(props){
        super(props)
@@ -115,16 +115,7 @@ class InventoryPage extends React.Component {
     </div>
     <div className="inventory">
     {/* Replacing with data table or a material table   */}
-    <table className="inventory-table">
-        <tr className="header">
-            <th>Name</th>
-            <th>Qty</th>
-            <th>Date Added</th>
-            <th>Price Bought</th>
-            <th>Current Price (Average)</th>
-            <th>Description</th>
-        </tr>
-    </table>
+    <Table/>
     </div>
     <div>
     <AddItemModal show={this.state.showModal} hide= {this.toggleModal} submission={this.submit}></AddItemModal>
