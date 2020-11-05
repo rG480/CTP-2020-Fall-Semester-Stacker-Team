@@ -3,7 +3,7 @@ import React from 'react';
 
 function Item() {
   return (
-    <div class="col-lg-12 col-md-12 col-sm-12">
+    <div className="col-lg-4 col-md-4 col-sm-12">
       <div className="card mb-3 shadow">
         <div className="card-body card-text">
           <p>Castlevania</p>
