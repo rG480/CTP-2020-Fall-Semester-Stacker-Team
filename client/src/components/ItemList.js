@@ -2,12 +2,12 @@ import React from 'react';
 import Item from './Item';
 
 
-class ItemGrid extends React.Component {
+class ItemList extends React.Component {
 
     render() {
-        let grid = []
+        let List = []
         for (let i = 0; i < 5; i++) {
-            grid.push(
+            List.push(
                 <Item />
             );
         }
@@ -15,8 +15,8 @@ class ItemGrid extends React.Component {
         return (
             <div>
                 <p>Video Games</p>
-                    <div style={{display: 'flex', flexDirection: 'row'}}>
-                        { grid }
+                    <div className="overflow-auto" style={{display: 'flex', flexDirection: 'row'}}>
+                        { List }
                     </div>
             </div>
         );
@@ -24,4 +24,4 @@ class ItemGrid extends React.Component {
 
 }
 
-export default ItemGrid
+export default ItemList;
