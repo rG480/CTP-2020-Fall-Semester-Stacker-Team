@@ -19,8 +19,15 @@ function Table(){
             price_bought:19.23,
             price_current:19.50,
             description:"Alien Triple Pack DVD from Rite Aid"
+        },
+        {
+            item_name:"Godzill Triple Feature",
+            item_qty:1,
+            date_added:"2020-12-12",
+            price_bought:19.23,
+            price_current:19.50,
+            description:"Godzilla DVD Pack from Rite Aid"
         }
-        
     ]
 
 
