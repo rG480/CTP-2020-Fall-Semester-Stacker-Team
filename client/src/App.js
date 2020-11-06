@@ -19,11 +19,6 @@ function Navigation(props) {
       {/* Might change this to the site's name later.*/}
       <ul className="navbar-nav mr-auto">
         <li className="nav-item">
-          <NavLink className="nav-link" exact to="/collection">
-            Inventory
-          </NavLink>
-        </li>
-        <li className="nav-item">
           <NavLink className="nav-link" exact to="#">
             Local
           </NavLink>
