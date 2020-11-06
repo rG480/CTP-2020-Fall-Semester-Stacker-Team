@@ -6,8 +6,8 @@ import ItemListBox from '../components/ItemListBox';
 
 function InventoryGridPage(props) {
   return (
-    <div className="row flex-row flex-nowrap overflow-auto justify-content-md-center">
-        <div className="col-2">
+    <div className="row flex-nowrap overflow-auto justify-content-md-center">
+        <div className="justify-left">
             <UserInfo />
         </div>
         <div className="col-8">

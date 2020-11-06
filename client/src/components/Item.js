@@ -5,14 +5,14 @@ class Item extends React.Component {
 
     render () {
         return (
-            <div className="col-lg-3 col-md-4 col-sm-5">
-            <div className="card mb-3 shadow" >
+            <div className="" style={{width: "250px", padding: "10px"}}>
+            <div className="shadow" >
                 <div className="card-body card-text">
-                <p>Castlevania</p>
-                <img alt="castle.jpg"></img>
+                    <p>Castlevania</p>
+                    <img alt="castle.jpg"></img>
                 </div>
                 <div className="card-footer small text-muted text-right">
-                <p>$10.00</p>
+                    <p>$10.00</p>
                 </div>
             </div>
             </div>
