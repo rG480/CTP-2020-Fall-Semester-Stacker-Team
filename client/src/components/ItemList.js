@@ -20,7 +20,7 @@ class ItemList extends React.Component {
                     <p>Video Games</p>
                 </div>
                 <div class="container-fluid ">
-                    <div class="row flex-row flex-nowrap overflow-auto">
+                    <div class="row flex-nowrap overflow-auto">
                         { List }
                     </div>
                 </div>

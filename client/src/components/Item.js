@@ -7,7 +7,7 @@ class Item extends React.Component {
     }
     render () {
         return (
-            <div className="" style={{minWidth: "250px", padding: "10px"}}>
+            <div className="" style={{minWidth: "225px", padding: "10px"}}>
             <div className="shadow" >
                 <div className="card-body card-text">
                     <p>{this.props.itemContent.name}</p>
