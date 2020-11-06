@@ -6,7 +6,7 @@ class ItemList extends React.Component {
 
     render() {
         let List = []
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 10; i++) {
             List.push(
                 <Item />
             );
@@ -14,12 +14,17 @@ class ItemList extends React.Component {
 
         return (
             <div>
-                <p>Video Games</p>
-                    <div className="overflow-auto" style={{display: 'flex', flexDirection: 'row'}}>
+                <div>
+                    <p>Video Games</p>
+                </div>
+                <div class="container-fluid ">
+                    <div class="row flex-row flex-nowrap overflow-auto">
                         { List }
                     </div>
+                </div>
             </div>
-        );
+        )
+    
     }
 
 }

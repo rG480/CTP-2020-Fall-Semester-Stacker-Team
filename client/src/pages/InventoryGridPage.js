@@ -1,17 +1,17 @@
 import React from 'react';
 import ItemList from '../components/ItemList';
 import UserInfo from '../components/UserInfo';
+import ItemListBox from '../components/ItemListBox';
 
 
 function InventoryGridPage(props) {
   return (
-    <div>
-        <div className="float-left">
+    <div className="row flex-row flex-nowrap overflow-auto justify-content-md-center">
+        <div className="col-2">
             <UserInfo />
         </div>
-        <div className="float-right">
-            <ItemList />
-            <ItemList />
+        <div className="col-8">
+            <ItemListBox />
         </div>
     </div>
 
