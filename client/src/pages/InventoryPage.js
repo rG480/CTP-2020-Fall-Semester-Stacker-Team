@@ -1,53 +1,7 @@
 import React from 'react';
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
-
-class AddItemModal extends React.Component{
-  constructor(props){
-       super(props)
-       this.state={
-        name:"",
-        quantity:1,
-        pPrice:0.00,
-        cPrice:0.00,
-        desc:""
-      }
-  }
-  
-  alertText(){
-    alert(this.state.quantity)
-  }
-  render(){
-  return(<Modal show={this.props.show} onHide={this.props.hide}>
-    <Modal.Header closeButton>
-      <Modal.Title>Modal title</Modal.Title>
-    </Modal.Header>
-  
-    <Modal.Body>
-      <p>Modal body text goes here.</p>
-      <form>
-        Item Name:
-        <br/>
-        <input type="text" onChange={e=>this.setState({name:e.target.value})} />
-        <br/>
-        Quantity:
-        <br/>
-        <input type="number" onChange={e=>this.setState({quantity:e.target.value})}/>
-        <br/>
-       Purchase Price:
-        <br/>
-        <input type="text" onChange={e=>this.setState({pPrice:e.target.value})}/>
-      </form>
-    </Modal.Body>
-  
-    <Modal.Footer>
-      <Button variant="secondary" onClick={e=>this.props.hide()}>Close</Button>
-      <Button variant="primary" onClick={e=>this.props.submission(this.state.name,this.state.quantity)}>Save changes</Button>
-    </Modal.Footer>
-  </Modal>
-  );}
-}
-
+import AddItemModal from '../components/ItemSubmissionModal'
 
 
 class InventoryPage extends React.Component {
@@ -60,20 +14,19 @@ class InventoryPage extends React.Component {
     this.submit = this.handleSubmission.bind(this)
   }
   handleSelect(){
-    console.log(this.state.showModal)
     this.setState({
       showModal: this.state.showModal ? false : true
     })
   }
-  handleSubmission(s,x){
+  handleSubmission(name,quant,initPrice,currPrice,date,desc){
     
     let jsonToSend= {
-      name:s,
-      quantity:x,
-      dateAdded: '11/4/2020',
-      purchasePrice: 19.99,
-      currentPrice: 37.23,
-      description: "My first Gunpla model!",
+      name:name,
+      quantity:quant,
+      dateAdded: "11/5/2020",
+      purchasePrice: initPrice,
+      currentPrice: currPrice,
+      description: desc,
     }
     console.log(JSON.stringify(jsonToSend))
     fetch("/api/inv/", {
@@ -93,16 +46,26 @@ class InventoryPage extends React.Component {
       })
       .then(post => {
         alert("Success!")
+        this.setState({
+          showModal:false
+        })
       })
       .catch(err => {
         alert("error :3")
       });
   }
+  deleteItem(id){
+     fetch("api/inv/"+id,{
+       method:'DELETE'
+     })
+     .then(response=>{if(response.ok){alert(1)}})
+     .catch(err=>{alert("error")})
+  }
   componentDidMount() {
     fetch("/api/inv/")
       .then(res => res.json())
       .then(post => {
-       alert(post[2].name)
+       alert(post.length)
       })
     }
 
@@ -128,8 +91,9 @@ class InventoryPage extends React.Component {
     </div>
     <div>
     <AddItemModal show={this.state.showModal} hide= {this.toggleModal} submission={this.submit}></AddItemModal>
-      <button onClick={e=>this.handleSubmission(e)}>Click to add</button>
+      
       <button onClick={this.toggleModal}>Toggle modal</button>
+      <button onClick={e=>this.deleteItem(4)}>Delete</button>
     </div>
 </div>
 );

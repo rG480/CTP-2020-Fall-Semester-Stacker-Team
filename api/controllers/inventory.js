@@ -16,7 +16,19 @@ router.post('/', (req, res) => {
         res.status(201).json(post);
       })
       .catch(err => {
-        res.status(403).json(err);
+        res.status(401).json(err);
+      });
+  });
+  router.delete('/:id', (req, res) => {
+    const { id } = req.params;
+    Inventory.findByPk(id)
+      .then(item => {
+        if(!item) {
+          return res.sendStatus(404);
+        }
+  
+        item.destroy();
+        res.sendStatus(204);
       });
   });
   module.exports = router;
