@@ -23,6 +23,9 @@
 */
 
 /* Temp until table's replaced */
-table{
+.inventory table {
   width: 1500px;
+  min-width: 200px;
+  table-layout: fixed;
+  padding-bottom: 10px;
 }
