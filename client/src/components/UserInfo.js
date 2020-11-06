@@ -4,7 +4,7 @@ class UserInfo extends React.Component {
 
     render () {
     return (
-      <div className="col-lg-12 col-md-12 col-sm-12">
+      <div style={{width: "200px", padding: "20px"}}>
         <div class="card" >
           <img class="card-img-top" src=".." alt="userImagge.jpg"></img>
           <ul class="list-group list-group-flush">
