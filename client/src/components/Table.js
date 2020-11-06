@@ -28,7 +28,7 @@ function Table(){
             price_current:19.50,
             description:"Godzilla DVD Pack from Rite Aid"
         }
-    ]
+    ] 
 
 
     return (
@@ -36,7 +36,6 @@ function Table(){
             <MaterialTable title="Some Title"
             data={data}
             columns={cols}
-            style={{ width: 1500}}
             />
         </div>
     );
