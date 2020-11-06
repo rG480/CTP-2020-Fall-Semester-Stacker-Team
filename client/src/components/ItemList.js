@@ -3,15 +3,17 @@ import Item from './Item';
 
 
 class ItemList extends React.Component {
-
+    constructor(props){
+        super(props)
+    }
     render() {
         let List = []
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < this.props.items.length; i++) {
             List.push(
-                <Item />
+                <Item itemContent={this.props.items[i]}/>
             );
         }
-
+        
         return (
             <div>
                 <div>

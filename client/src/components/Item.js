@@ -2,13 +2,15 @@ import React from 'react';
 
 
 class Item extends React.Component {
-
+    constructor(props){
+        super(props)
+    }
     render () {
         return (
-            <div className="" style={{width: "250px", padding: "10px"}}>
+            <div className="" style={{minWidth: "250px", padding: "10px"}}>
             <div className="shadow" >
                 <div className="card-body card-text">
-                    <p>Castlevania</p>
+                    <p>{this.props.itemContent.name}</p>
                     <img alt="castle.jpg"></img>
                 </div>
                 <div className="card-footer small text-muted text-right">
