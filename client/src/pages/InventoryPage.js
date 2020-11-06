@@ -112,6 +112,7 @@ class InventoryPage extends React.Component {
    
     return ( <div className="content">
     <div className="collection-title">
+      <h2>Collection Title</h2>
     </div>
     <div className="inventory" >
     <Table />
