@@ -10,11 +10,11 @@ function InventoryGridPage(props) {
         <div className="justify-left">
             <UserInfo />
         </div>
-        <div className="col-8">
+        <div className="col-9">
             <ItemListBox />
         </div>
     </div>
-
+  
   );
 }
 
