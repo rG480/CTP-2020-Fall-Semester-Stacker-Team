@@ -36,6 +36,7 @@ function Table(){
             <MaterialTable title="Some Title"
             data={data}
             columns={cols}
+            style={{ width: 1500}}
             />
         </div>
     );
