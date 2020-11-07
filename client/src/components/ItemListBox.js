@@ -7,11 +7,10 @@ class ItemListBox extends React.Component {
     }
     render () {
         return (
-            <div >
+            <div>
                 <div>
                 <ItemList items={this.props.list} />
                 <ItemList items={this.props.list} />
-                
                 </div>
             </div>
         )
