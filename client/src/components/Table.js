@@ -2,6 +2,10 @@ import React from 'react'
 import MaterialTable from 'material-table'
 
 function Table(){
+    const { useState } = React;
+    const [selectedRow, setSelectedRow] = useState(null);
+
+
     const cols=[
         {title: "Item Name", field:"item_name"},
         {title: "Quantity", field:"item_qty"},
@@ -34,8 +38,15 @@ function Table(){
     return (
         <div>
             <MaterialTable title="Some Title"
+            
             data={data}
             columns={cols}
+            onRowClick={((evt, selectedRow) => setSelectedRow(selectedRow.tableData.id))}
+            options={{
+                rowStyle: rowData => ({
+                backgroundColor: (selectedRow === rowData.tableData.id) ? '#EEE' : '#FFF'
+                })
+            }}
             />
         </div>
     );
