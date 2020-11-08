@@ -6,6 +6,7 @@ class Item extends React.Component {
         super(props)
     }
     render () {
+      
         return (
             <div className="" style={{minWidth: "225px", padding: "10px"}}>
             <div className="shadow" >
@@ -14,7 +15,7 @@ class Item extends React.Component {
                     <img alt="castle.jpg"></img>
                 </div>
                 <div className="card-footer small text-muted text-right">
-                    <p>$10.00</p>
+                    <p>{this.props.itemContent.purchasePrice}</p>
                 </div>
             </div>
             </div>
