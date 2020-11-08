@@ -19,17 +19,19 @@ class InventoryGridPage extends React.Component {
       this.setState({itemsList:post}) 
     })
   }
+
+  
     render(){
       let renderedContent
       if(!this.state.itemsList.length){
-        renderedContent= (<span>Loading</span>)
+        renderedContent= (<span><UserInfo /></span>)
       }
       else{
-        renderedContent=  (  <div className="row flex-nowrap overflow-auto justify-content-md-center">
+        renderedContent=  (  <div className="row flex-nowrap justify-content-md-center">
         <div className="justify-left">
             <UserInfo />
         </div>
-        <div className="col-9">
+        <div style={{maxWidth: "1000px"}}>
             <ItemListBox list={this.state.itemsList}/>
         </div>
     </div>
