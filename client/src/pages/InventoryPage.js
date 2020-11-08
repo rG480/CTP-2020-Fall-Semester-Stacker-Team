@@ -2,6 +2,7 @@ import React from 'react';
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import Table from '../components/Table'
+import UserInfo from '../components/UserInfo'
 
 class AddItemModal extends React.Component{
   constructor(props){
@@ -114,7 +115,11 @@ class InventoryPage extends React.Component {
     <div className="collection-title">
       <h2>Collection Title</h2>
     </div>
-    <div className="inventory" >
+    <div className="float-left" style={{paddingRight:"25px"}}>
+            <UserInfo />
+    </div>
+    <div className="inventory float-right" >
+    
     <Table />
     </div>
     <div>
