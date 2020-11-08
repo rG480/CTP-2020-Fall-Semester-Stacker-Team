@@ -24,8 +24,8 @@
 
 /* Temp until table's replaced */
 .inventory table {
-  width: 1500px;
-  min-width: 200px;
+  width: 1000px;
+  min-width: auto;
   table-layout: fixed;
   padding-bottom: 10px;
 }
