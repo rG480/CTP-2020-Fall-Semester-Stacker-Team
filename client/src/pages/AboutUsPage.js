@@ -3,7 +3,10 @@ import React from 'react';
 
 function AboutUsPage(props) {
   return (
-    <div>A little info about us.</div>
+    <div>
+      Cellar is a collection management web application allowing users to browse, view, create, and manage their collections
+      Collections are
+    </div>
     
   );
 }
