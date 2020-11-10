@@ -20,12 +20,12 @@ module.exports = (sequelize, DataTypes) => {
            notEmpty:true,
         }
       },
-      /*dateAdded:{
-          type: DataTypes.DATEONLY,
+      dateAdded:{
+          type: DataTypes.DATE,
           validate:{
               notEmpty:true,
           }
-      },*/
+      },
       purchasePrice:{
           type: DataTypes.DECIMAL(10, 2),
           validate:{

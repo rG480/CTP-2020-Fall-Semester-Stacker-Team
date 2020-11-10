@@ -1,6 +1,6 @@
 'use strict';
 const { Model } = require('sequelize');
-
+const bcrypt = require('bcryptjs');
 
 module.exports = (sequelize, DataTypes) => {
     class Users extends Model {}
@@ -18,23 +18,33 @@ module.exports = (sequelize, DataTypes) => {
             validate: {
               len: [3, 100],
               notEmpty: true,
+            
             }
           },
-        userPassword: {
-            type: DataTypes.STRING,
+          userPasswordHash: { type: DataTypes.STRING },
+          userPassword: { 
+            type: DataTypes.VIRTUAL,
             validate: {
-              len: [3, 100],
-              notEmpty: true,
-            }
+              isLongEnough: (val) => {
+                if (val.length < 8) {
+                  throw new Error("Please choose a longer password");
+                }
+              },
+            },
           },
-    }, {
-        sequelize,
-        modelName: 'Users'
-      });
+        }, {
+          sequelize,
+          modelName: 'Users'
+        });
 
       Users.associate = (models) => {
         // associations can be defined here
       };
-
-      return Users;
+      Users.beforeSave((user, options) => {
+        if(user.userPassword) {
+          user.userPasswordHash = bcrypt.hashSync(user.userPassword, 10);
+        }
+      });
+    
+     return Users;
     };

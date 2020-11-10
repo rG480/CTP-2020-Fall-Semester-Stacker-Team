@@ -1,17 +1,20 @@
 import React from 'react';
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
-
+import DatePicker from 'react-datepicker'
+import "react-datepicker/dist/react-datepicker.css";
 class AddItemModal extends React.Component{
     constructor(props){
          super(props)
          this.state={
           name:"",
           quantity:1,
+          dateAdded: new Date(),
           pPrice:0.00,
           cPrice:0.00,
           desc:""
         }
+
     }
     
     alertText(){
@@ -34,6 +37,10 @@ class AddItemModal extends React.Component{
           <br/>
           <input type="number" onChange={e=>this.setState({quantity:e.target.value})}/>
           <br/>
+          Date Obtained:
+          <br/>
+          <DatePicker selected={this.state.dateAdded} onSelect={date=>this.setState({dateAdded:date})} ></DatePicker>
+          <br/>
          Purchase Price:
           <br/>
           <input type="text" onChange={e=>this.setState({pPrice:parseFloat(e.target.value)})}/>
@@ -52,7 +59,7 @@ class AddItemModal extends React.Component{
       <Modal.Footer>
         <Button variant="secondary" onClick={e=>this.props.hide()}>Close</Button>
         <Button variant="primary" onClick={e=>this.props.submission(this.state.name,this.state.quantity,
-         this.state.pPrice,this.state.cPrice,'11/5/2020',this.state.desc   )}>Save changes</Button>
+         this.state.pPrice,this.state.cPrice,this.state.dateAdded,this.state.desc   )}>Save changes</Button>
       </Modal.Footer>
     </Modal>
     );}

@@ -23,7 +23,7 @@ class InventoryPage extends React.Component {
     let jsonToSend= {
       name:name,
       quantity:quant,
-      dateAdded: "11/5/2020",
+      dateAdded: date,
       purchasePrice: initPrice,
       currentPrice: currPrice,
       description: desc,
@@ -51,7 +51,7 @@ class InventoryPage extends React.Component {
         })
       })
       .catch(err => {
-        alert("error :3")
+        alert(err)
       });
   }
   deleteItem(id){
@@ -66,6 +66,7 @@ class InventoryPage extends React.Component {
       .then(res => res.json())
       .then(post => {
        alert(post.length)
+       console.log(post)
       })
     }
 

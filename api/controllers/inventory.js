@@ -10,7 +10,7 @@ router.get('/', (req,res) => {
 router.post('/', (req, res) => {
     let  content  = req.body;
     console.log(content)
-    Inventory.create({name:content.name,quantity:content.quantity,/*dateAdded:content.dateAdded,*/
+    Inventory.create({name:content.name,quantity:content.quantity,dateAdded:content.dateAdded,
        purchasePrice:content.purchasePrice,currentPrice:content.currentPrice,description:content.description })
       .then(post => {
         res.status(201).json(post);
