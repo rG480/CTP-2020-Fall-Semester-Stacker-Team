@@ -4,7 +4,7 @@ const db = require('../models');
 const { Inventory } = db;
 
 router.get('/', (req,res) => {
-    Inventory.findAll({where:{id:1}})
+    Inventory.findAll({where:{OwnerId:1}})
     .then(inv => res.json(inv));
 });
 router.post('/', (req, res) => {
