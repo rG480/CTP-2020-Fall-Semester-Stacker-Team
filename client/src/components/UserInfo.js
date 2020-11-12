@@ -56,10 +56,10 @@ class UserInfo extends React.Component {
     render () {
     return (
       <div style={{width: "200px", padding: "20px"}}>
-        <div class="card" >
-          <img class="card-img-top" src=".." alt="userImagge.jpg"></img>
-          <ul class="list-group list-group-flush">
-    <li class="list-group-item">steve </li>
+        <div className="card" >
+          <img className="card-img-top" src=".." alt="userImage.jpg"></img>
+          <ul className="list-group list-group-flush">
+    <li className="list-group-item">steve </li>
             <li class="list-group-item">User Email</li> 
           </ul>
           <div className="card-body">
