@@ -26,9 +26,7 @@ class ItemList extends React.Component {
                 </div>
             </div>
         )
-    
     }
-
 }
 
 export default ItemList;

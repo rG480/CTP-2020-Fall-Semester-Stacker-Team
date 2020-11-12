@@ -15,7 +15,7 @@ class InventoryGridPage extends React.Component {
     fetch("/api/inv/")
     .then(res => res.json())
     .then(post => {
-     alert(post.length)
+    //alert(post.length)
       this.setState({itemsList:post}) 
     })
   }
@@ -27,12 +27,15 @@ class InventoryGridPage extends React.Component {
         renderedContent= (<span><UserInfo /></span>)
       }
       else{
-        renderedContent=  (  <div className="row flex-nowrap justify-content-md-center">
+        renderedContent=  (  
+        <div className="row flex-nowrap justify-content-md-center">
         <div className="justify-left">
             <UserInfo />
         </div>
         <div style={{maxWidth: "1000px"}}>
+  
             <ItemListBox list={this.state.itemsList}/>
+
         </div>
     </div>
     )
@@ -45,8 +48,7 @@ class InventoryGridPage extends React.Component {
   return (
     renderedContent
     
-   
-  
+
   );
   }
 }
