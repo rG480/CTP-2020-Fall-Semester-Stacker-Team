@@ -61,11 +61,7 @@ class AddItemModal extends React.Component{
       <Modal.Footer>
         <Button variant="secondary" onClick={e=>this.props.hide()}>Close</Button>
         <Button variant="primary" onClick={e=>this.props.submission(this.state.name,this.state.quantity,
-<<<<<<< HEAD
          this.state.pPrice,this.state.cPrice,this.state.dateAdded,this.state.desc  )} >Save changes</Button>
-=======
-         this.state.pPrice,this.state.cPrice,this.state.dateAdded,this.state.desc,this.state.public)}>Save changes</Button>
->>>>>>> 43e69b9cc14ab779f12271976e15508b1e0217a2
       </Modal.Footer>
     </Modal>
     );}
