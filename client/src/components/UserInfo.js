@@ -16,15 +16,16 @@ class UserInfo extends React.Component {
       showModal: this.state.showModal ? false : true
     })
   }
-  handleSubmission(name,quant,initPrice,currPrice,date,desc){
+  handleSubmission(name,quant,initPrice,currPrice,date,desc,pub){
     
     let jsonToSend= {
       name:name,
       quantity:quant,
-      dateAdded: "11/5/2020",
+      dateAdded: date,
       purchasePrice: initPrice,
       currentPrice: currPrice,
       description: desc,
+      public:pub
     }
     console.log(JSON.stringify(jsonToSend))
     fetch("/api/inv/", {
@@ -56,7 +57,7 @@ class UserInfo extends React.Component {
     return (
       <div style={{width: "200px", padding: "20px"}}>
         <div className="card" >
-          <img className="card-img-top" src=".." alt="userImagge.jpg"></img>
+          <img className="card-img-top" src=".." alt="userImage.jpg"></img>
           <ul className="list-group list-group-flush">
     <li className="list-group-item">steve </li>
             <li class="list-group-item">User Email</li> 

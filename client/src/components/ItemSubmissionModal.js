@@ -12,7 +12,8 @@ class AddItemModal extends React.Component{
           dateAdded: new Date(),
           pPrice:0.00,
           cPrice:0.00,
-          desc:""
+          desc:"",
+          public:false
         }
 
     }
@@ -52,14 +53,19 @@ class AddItemModal extends React.Component{
           Description:
           <br/>
           <textarea onChange={e=>this.setState({desc:e.target.value})}/>
-          
+          <br/>
+          Show publically? <input type="checkbox"></input>
         </form>
       </Modal.Body>
     
       <Modal.Footer>
         <Button variant="secondary" onClick={e=>this.props.hide()}>Close</Button>
         <Button variant="primary" onClick={e=>this.props.submission(this.state.name,this.state.quantity,
+<<<<<<< HEAD
          this.state.pPrice,this.state.cPrice,this.state.dateAdded,this.state.desc  )} >Save changes</Button>
+=======
+         this.state.pPrice,this.state.cPrice,this.state.dateAdded,this.state.desc,this.state.public)}>Save changes</Button>
+>>>>>>> 43e69b9cc14ab779f12271976e15508b1e0217a2
       </Modal.Footer>
     </Modal>
     );}
