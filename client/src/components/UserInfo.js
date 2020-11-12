@@ -16,15 +16,16 @@ class UserInfo extends React.Component {
       showModal: this.state.showModal ? false : true
     })
   }
-  handleSubmission(name,quant,initPrice,currPrice,date,desc){
+  handleSubmission(name,quant,initPrice,currPrice,date,desc,pub){
     
     let jsonToSend= {
       name:name,
       quantity:quant,
-      dateAdded: "11/5/2020",
+      dateAdded: date,
       purchasePrice: initPrice,
       currentPrice: currPrice,
       description: desc,
+      public:pub
     }
     console.log(JSON.stringify(jsonToSend))
     fetch("/api/inv/", {

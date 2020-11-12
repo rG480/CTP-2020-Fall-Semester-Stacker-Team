@@ -46,6 +46,13 @@ module.exports = (sequelize, DataTypes) => {
               notEmpty:true,
           }  
        },
+       public:{
+        type: DataTypes.BOOLEAN,
+        validate:{
+          notEmpty:true,
+        }
+
+       },
     }, {
       sequelize,
       modelName: 'Inventory'
@@ -53,7 +60,7 @@ module.exports = (sequelize, DataTypes) => {
   
     Inventory.associate = (models) => {
       // set up account relation later
-      //1 acc has many items, while an item has 1 acc associated with it
+      models.Inventory.belongsTo(models.Users,{as: 'Owner'});
     };
   
     return Inventory;

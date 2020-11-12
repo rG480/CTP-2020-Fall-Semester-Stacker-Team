@@ -4,14 +4,20 @@ const db = require('../models');
 const { Inventory } = db;
 
 router.get('/', (req,res) => {
-    Inventory.findAll({})
+    Inventory.findAll({where:{id:1}})
     .then(inv => res.json(inv));
 });
 router.post('/', (req, res) => {
     let  content  = req.body;
     console.log(content)
-    Inventory.create({name:content.name,quantity:content.quantity,dateAdded:content.dateAdded,
-       purchasePrice:content.purchasePrice,currentPrice:content.currentPrice,description:content.description })
+    Inventory.create({name: content.name,
+        quantity: content.quantity,
+        dateAdded: content.dateAdded,
+       purchasePrice: content.purchasePrice,
+       currentPrice: content.currentPrice,
+       description: content.description,
+       public:content.public })
+      .then(item=>item.setOwner(1))
       .then(post => {
         res.status(201).json(post);
       })

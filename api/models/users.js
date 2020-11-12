@@ -39,6 +39,7 @@ module.exports = (sequelize, DataTypes) => {
 
       Users.associate = (models) => {
         // associations can be defined here
+       
       };
       Users.beforeSave((user, options) => {
         if(user.userPassword) {
