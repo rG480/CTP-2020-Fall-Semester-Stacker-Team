@@ -10,8 +10,8 @@ import './App.css';
 import AboutUsPage from './pages/AboutUsPage';
 import InventoryPage from './pages/InventoryPage';
 import InventoryGridPage from './pages/InventoryGridPage';
-
-
+import auth from './services/auth'
+auth.amILoggedIn();
 function Navigation(props) {
   return (
     <nav className="navbar navbar-expand-sm navbar-dark bg-dark shadow mb-3">
