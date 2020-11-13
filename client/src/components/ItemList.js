@@ -13,7 +13,7 @@ class ItemList extends React.Component {
         }
 
         return (
-            <div>
+            <div style={{paddingBottom:"50px"}}>
                 <p>Video Games</p>
                     <div className="overflow-auto" style={{display: 'flex', flexDirection: 'row'}}>
                         { List }
