@@ -11,6 +11,7 @@ router.post('/signup', (req, res) => {
     userPassword: req.body.password,
   })
     .then((user) => {
+     
       req.login(user, () => res.status(201).json(user));
     })
     .catch((err) => {

@@ -6,7 +6,7 @@ class Item extends React.Component {
         super(props)
     }
     render () {
-        console.log(this.props.itemContent.dateAdded)
+      //  console.log(this.props.itemContent.dateAdded)
         return (
             <div className="" style={{minWidth: "225px", padding: "10px"}}>
             <div className="shadow" >

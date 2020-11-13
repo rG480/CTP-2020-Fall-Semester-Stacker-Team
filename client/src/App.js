@@ -15,7 +15,7 @@ auth.amILoggedIn();
 function Navigation(props) {
   return (
     <nav className="navbar navbar-expand-sm navbar-dark bg-dark shadow mb-3">
-      <Link className="navbar-brand" to="/">Home</Link>
+      <Link className="navbar-brand" exact to="/landing">Home</Link>
       {/* Might change this to the site's name later.*/}
       <ul className="navbar-nav mr-auto">
         <li className="nav-item">
@@ -50,13 +50,16 @@ function Navigation(props) {
 
 
 class App extends React.Component {
+
   render() {
     return (
+      <div>
         <Router>
           <Navigation />
           <div className="container-fluid text-center">
             <div className="row justify-content-center">
               <Switch>
+                <Route path="/landing" component={LandingPage} />
                 <Route path="/collection" component={InventoryPage}/>
                 <Route path="/about-us" component={AboutUsPage} />
                 <Route path="/inventoryGridPage" component={InventoryGridPage}/>
@@ -64,6 +67,7 @@ class App extends React.Component {
             </div>
           </div>
         </Router>
+      </div>
     );
   }
 }
