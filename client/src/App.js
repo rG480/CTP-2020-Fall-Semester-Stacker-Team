@@ -7,6 +7,7 @@ import {
   NavLink
 } from 'react-router-dom';
 import './App.css';
+import LandingPage from './pages/LandingPage';
 import AboutUsPage from './pages/AboutUsPage';
 import InventoryPage from './pages/InventoryPage';
 import InventoryGridPage from './pages/InventoryGridPage';
