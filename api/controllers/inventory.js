@@ -4,7 +4,7 @@ const db = require('../models');
 const { Inventory } = db;
 
 router.get('/', (req,res) => {
-    Inventory.findAll({where:{id:1}})
+    Inventory.findAll({where:{OwnerId: 1}, order: [[ 'createdAt' , 'DESC']]})
     .then(inv => res.json(inv));
 });
 router.post('/', (req, res) => {
@@ -16,7 +16,7 @@ router.post('/', (req, res) => {
        purchasePrice: content.purchasePrice,
        currentPrice: content.currentPrice,
        description: content.description,
-       public:content.public })
+       public: content.pub })
       .then(item=>item.setOwner(1))
       .then(post => {
         res.status(201).json(post);

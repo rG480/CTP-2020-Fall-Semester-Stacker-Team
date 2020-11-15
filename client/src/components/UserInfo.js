@@ -25,7 +25,7 @@ class UserInfo extends React.Component {
       purchasePrice: initPrice,
       currentPrice: currPrice,
       description: desc,
-      public:pub
+      pub: pub
     }
     console.log(JSON.stringify(jsonToSend))
     fetch("/api/inv/", {

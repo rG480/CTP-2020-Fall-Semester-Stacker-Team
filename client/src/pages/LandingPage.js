@@ -1,7 +1,4 @@
 import React from 'react';
-import ItemList from '../components/ItemList';
-import UserInfo from '../components/UserInfo';
-import ItemListBox from '../components/ItemListBox';
 import LandingPageBox from '../components/LandingPageItemBox';
 
 
@@ -9,22 +6,47 @@ class LandingPage extends React.Component {
   constructor(props){
     super(props)
     this.state={
-      itemsList:''
+      itemsList:'',
+      test: 'recentAdded'
     }
+    this.topPrice = this.topPrice.bind(this);
+    this.recentAdded = this.recentAdded.bind(this);
   }
-  componentDidMount() {
-    fetch("/api/inv/")
-    .then(res => res.json())
-    .then(post => {
-     alert(post.length)
-      this.setState({itemsList:post}) 
-    })
-  }
+  
+ topPrice () {
+  fetch(`/api/topPrice/`)
+  .then(res => res.json())
+  .then(post => {
+   alert(post.length)
+    this.setState({itemsList:post}) 
+  })
+ }
+
+ recentAdded () {
+  fetch(`/api/recentAdded/`)
+  .then(res => res.json())
+  .then(post => {
+   alert(post.length)
+    this.setState({itemsList:post}) 
+  })
+ }
+
+ componentDidMount() {
+  fetch(`/api/recentAdded/`)
+  .then(res => res.json())
+  .then(post => {
+   alert(post.length)
+    this.setState({itemsList:post}) 
+  })
+}
+
 
   render () {
       return (
           <div>
             <LandingPageBox list={ this.state.itemsList } />
+            <button onClick={this.topPrice} >Top Price</button>
+            <button onClick={this.recentAdded} >Recent Added</button>
           </div>
       )
   }

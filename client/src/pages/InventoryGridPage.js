@@ -1,5 +1,4 @@
 import React from 'react';
-import ItemList from '../components/ItemList';
 import UserInfo from '../components/UserInfo';
 import ItemListBox from '../components/ItemListBox';
 
