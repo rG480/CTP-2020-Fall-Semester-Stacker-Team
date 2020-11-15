@@ -4,11 +4,7 @@ const db = require('../models');
 const { Inventory } = db;
 
 router.get('/', (req,res) => {
-<<<<<<< HEAD
     Inventory.findAll({where:{OwnerId: 1}, order: [[ 'createdAt' , 'DESC']]})
-=======
-    Inventory.findAll({where:{OwnerId:1}})
->>>>>>> f13538d18c6b287f436c730a36a6c266609a00d9
     .then(inv => res.json(inv));
 });
 router.post('/', (req, res) => {
