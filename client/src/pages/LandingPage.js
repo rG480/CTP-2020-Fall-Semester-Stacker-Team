@@ -45,8 +45,8 @@ class LandingPage extends React.Component {
       return (
           <div>
             <LandingPageBox list={ this.state.itemsList } />
-            <button onClick={this.topPrice} >Top Price</button>
-            <button onClick={this.recentAdded} >Recent Added</button>
+            <button onClick={this.topPrice} className="btn btn-primary" style={{margin: "5px"}}>Top Price</button>
+            <button onClick={this.recentAdded} className="btn btn-primary" style={{margin: "5px"}}>Recent Added</button>
           </div>
       )
   }

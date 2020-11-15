@@ -68,7 +68,7 @@ class UserInfo extends React.Component {
             <p>badge</p>
             <p>badge</p>
             <AddItemModal show={this.state.showModal} hide= {this.toggleModal} submission={this.submit}></AddItemModal>
-            <button onClick={this.toggleModal}>Add Item</button>
+            <button onClick={this.toggleModal} className="btn btn-primary">Add Item</button>
           </div>
         </div>
       </div>
