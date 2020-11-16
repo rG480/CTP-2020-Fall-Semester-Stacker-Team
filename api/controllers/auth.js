@@ -2,16 +2,14 @@ const router = require('express').Router();
 const { Users } = require('../models');
 const passport = require('../middlewares/authentication');
 
-
 router.post('/signup', (req, res) => {
   console.log("POST body: ", req.body);
   Users.create({
-    userName:req.body.userName,
+    userName:req.body.username,
     userEmail: req.body.email,
     userPassword: req.body.password,
-  })
-    .then((user) => {
-     
+  }).then((user) => {
+      console.log(122);
       req.login(user, () => res.status(201).json(user));
     })
     .catch((err) => {
@@ -24,6 +22,10 @@ router.post('/login',
   (req, res) => {
     // If this function gets called, authentication was successful.
     // `req.user` contains the authenticated user.
+   // Users.findAll({where:{userEmail:req.user.userEmail}}).then(user=>console.log(user))
+    console.log(req.user.id)
+    req.session.user = req.user.id;
+    
     res.json(req.user);
   });
 

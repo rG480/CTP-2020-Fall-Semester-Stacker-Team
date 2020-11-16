@@ -21,8 +21,8 @@ passport.use(new LocalStrategy({
     passwordField: 'password',
   },
   (email, password, done) => {
-    console.log("m995")
-      console.log(email)
+    
+     
     Users.findOne({ where: { userEmail:email } })
       .then((user) => {
         if(!user) {

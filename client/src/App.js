@@ -10,6 +10,7 @@ import './App.css';
 import AboutUsPage from './pages/AboutUsPage';
 import InventoryPage from './pages/InventoryPage';
 import InventoryGridPage from './pages/InventoryGridPage';
+import LandingPage from './pages/LandingPage'
 import auth from './services/auth'
 auth.amILoggedIn();
 function Navigation(props) {

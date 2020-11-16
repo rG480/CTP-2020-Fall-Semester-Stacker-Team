@@ -2,14 +2,17 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models');
 const { Inventory } = db;
-
+const passport =  require('../middlewares/authentication');
 router.get('/', (req,res) => {
-    Inventory.findAll({where:{OwnerId:1}})
+    console.log(req.session.id);
+    console.log(req.session.cookie);
+    Inventory.findAll({where:{OwnerId:req.session.user}})
     .then(inv => res.json(inv));
 });
-router.post('/', (req, res) => {
+router.post('/',passport.isAuthenticated(), (req, res) => {
+   
     let  content  = req.body;
-    console.log(content)
+
     Inventory.create({name: content.name,
         quantity: content.quantity,
         dateAdded: content.dateAdded,
@@ -17,7 +20,7 @@ router.post('/', (req, res) => {
        currentPrice: content.currentPrice,
        description: content.description,
        public:content.public })
-      .then(item=>item.setOwner(1))
+      .then(item=>item.setOwner(req.session.user))
       .then(post => {
         res.status(201).json(post);
       })

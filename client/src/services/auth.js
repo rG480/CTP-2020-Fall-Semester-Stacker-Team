@@ -44,7 +44,25 @@ const auth = {
           return body;
         });
     },
-    amILoggedIn(){
+    signin(username,email,password){
+      return fetch('/api/auth/signup',{
+        method:'POST',
+        body: JSON.stringify({ username, email, password }),
+        headers:{
+          'Content-Type': 'application/json',
+        }
+      }).then((response)=>{
+        if (!response.ok){
+          throw new Error('Signup Failed');
+        }
+        return response.json();
+      }).then((body) => {
+        this.isAuthenticated = true;
+        this.user = body.userEmail;
+        return body;
+      });
+    },
+    /*amILoggedIn(){
         return fetch('/api/protected').then((response) => {
             if(!response.ok) {
               this.isAuthenticated=false;
@@ -55,7 +73,7 @@ const auth = {
     
           })
         
-    }
+    }*/
   }
   
   export default auth; 

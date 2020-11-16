@@ -15,7 +15,11 @@ class AboutUsPage extends React.Component {
       showModal:this.state.showModal ? false : true
      });
   }
+
   render(){
+    if( localStorage.getItem("email") !== 'undefined'){
+      auth.user = localStorage.getItem('email')
+    }
   return (
     <div> Welcome, {auth.user}
     <button onClick={this.toggler}>Add Item</button>
