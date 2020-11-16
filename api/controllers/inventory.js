@@ -4,9 +4,13 @@ const db = require('../models');
 const { Inventory } = db;
 const passport =  require('../middlewares/authentication');
 router.get('/', (req,res) => {
+<<<<<<< HEAD
     console.log(req.session.id);
     console.log(req.session.cookie);
     Inventory.findAll({where:{OwnerId:req.session.user}})
+=======
+    Inventory.findAll({where:{OwnerId: 1}, order: [[ 'createdAt' , 'DESC']]})
+>>>>>>> 000fd7b4e3084d966bdd37a453786007248bba11
     .then(inv => res.json(inv));
 });
 router.post('/',passport.isAuthenticated(), (req, res) => {
@@ -19,8 +23,13 @@ router.post('/',passport.isAuthenticated(), (req, res) => {
        purchasePrice: content.purchasePrice,
        currentPrice: content.currentPrice,
        description: content.description,
+<<<<<<< HEAD
        public:content.public })
       .then(item=>item.setOwner(req.session.user))
+=======
+       public: content.pub })
+      .then(item=>item.setOwner(1))
+>>>>>>> 000fd7b4e3084d966bdd37a453786007248bba11
       .then(post => {
         res.status(201).json(post);
       })

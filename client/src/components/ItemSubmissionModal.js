@@ -13,9 +13,9 @@ class AddItemModal extends React.Component{
           pPrice:0.00,
           cPrice:0.00,
           desc:"",
-          pub:false
+          pub: false
         }
-
+ 
     }
     
     alertText(){
@@ -54,14 +54,14 @@ class AddItemModal extends React.Component{
           <br/>
           <textarea onChange={e=>this.setState({desc:e.target.value})}/>
           <br/>
-          Show publically? <input type="checkbox" onChange={e=>{this.setState({pub: this.state.pub? false : true }); console.log(this.state.pub)}}></input>
+          Show publically? <input type="checkbox" onChange={e=>this.setState({pub: this.state.pub? false : true })}></input>
         </form>
       </Modal.Body>
     
       <Modal.Footer>
         <Button variant="secondary" onClick={e=>this.props.hide()}>Close</Button>
         <Button variant="primary" onClick={e=>this.props.submission(this.state.name,this.state.quantity,
-         this.state.pPrice,this.state.cPrice,this.state.dateAdded,this.state.desc,this.state.pub)}>Save changes</Button>
+         this.state.pPrice,this.state.cPrice,this.state.dateAdded,this.state.desc,this.state.pub )} >Save changes</Button>
       </Modal.Footer>
     </Modal>
     );}

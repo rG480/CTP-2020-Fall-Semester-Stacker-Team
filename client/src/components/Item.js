@@ -15,7 +15,7 @@ class Item extends React.Component {
                     <img alt="castle.jpg"></img>
                 </div>
                 <div className="card-footer small text-muted text-right">
-                    <p>{this.props.itemContent.purchasePrice}</p>
+                    <p>{this.props.itemContent.currentPrice}</p>
                 </div>
             </div>
             </div>
