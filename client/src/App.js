@@ -11,11 +11,34 @@ import LandingPage from './pages/LandingPage';
 import AboutUsPage from './pages/AboutUsPage';
 import InventoryPage from './pages/InventoryPage';
 import InventoryGridPage from './pages/InventoryGridPage';
-import LandingPage from './pages/LandingPage'
+import LoginModal from './components/LoginModal'
 import auth from './services/auth'
-auth.amILoggedIn();
-function Navigation(props) {
-  return (
+//auth.amILoggedIn();
+ class Navigation extends React.Component {
+  constructor(props){
+    super(props)
+    this.state={
+      showModal:false
+    }
+    this.toggler = this.toggleModal.bind(this)
+  }
+  toggleModal(){
+   
+     this.setState({
+      showModal:this.state.showModal ? false : true
+     });
+  }
+render(){
+  let button;
+  if(auth.isAuthenticated){
+    button = <button>Logout</button>
+   
+  }
+  else{
+    button=   <button onClick={this.toggler}>Login</button>
+  }
+  return (<div>
+      <LoginModal show={this.state.showModal} hide={this.toggler}></LoginModal>
     <nav className="navbar navbar-expand-sm navbar-dark bg-dark shadow mb-3">
       <Link className="navbar-brand" exact to="/landing">Home</Link>
       {/* Might change this to the site's name later.*/}
@@ -45,9 +68,14 @@ function Navigation(props) {
             Inventory Grid
           </NavLink>
         </li>
+        <li>
+            {button}
+        </li>
       </ul>
     </nav>
+    </div>
   );
+}
 }
 
 
@@ -56,6 +84,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
+       
         <Router>
           <Navigation />
           <div className="container-fluid text-center">

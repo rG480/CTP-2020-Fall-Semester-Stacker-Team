@@ -17,7 +17,7 @@ router.post('/',passport.isAuthenticated(), (req, res) => {
        purchasePrice: content.purchasePrice,
        currentPrice: content.currentPrice,
        description: content.description,
-       public:content.public })
+       public:content.pub })
       .then(item=>item.setOwner(req.session.user))
       .then(post => {
         res.status(201).json(post);
