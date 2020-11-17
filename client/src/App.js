@@ -30,13 +30,13 @@ import auth from './services/auth'
   }
 render(){
   let button;
-  if(auth.isAuthenticated){
-    button = <button>Logout</button>
+  // if(auth.isAuthenticated){
+  //   button = <button>Logout</button>
    
-  }
-  else{
+  // }
+  //else{
     button=   <button onClick={this.toggler}>Login</button>
-  }
+  //}
   return (<div>
       <LoginModal show={this.state.showModal} hide={this.toggler}></LoginModal>
     <nav className="navbar navbar-expand-sm navbar-dark bg-dark shadow mb-3">
