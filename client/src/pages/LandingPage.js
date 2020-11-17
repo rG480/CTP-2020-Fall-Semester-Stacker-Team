@@ -17,7 +17,7 @@ class LandingPage extends React.Component {
   
  topPrice (isLoggedIn) {
    if (this.state.buttonPressed !== 'topPrice') {
-    fetch(`/api/topPrice/` + isLoggedIn)
+    fetch('/api/topPrice/' + isLoggedIn)
     .then(res => res.json())
     .then(post => {
      alert(post.length)
@@ -28,7 +28,7 @@ class LandingPage extends React.Component {
 
  recentAdded (isLoggedIn) {
    if (this.state.buttonPressed !== 'recentAdded') {
-    fetch(`/api/recentAdded/`+ isLoggedIn)
+    fetch('/api/recentAdded/'+ isLoggedIn)
     .then(res => res.json())
     .then(post => {
     alert(post.length)
@@ -38,7 +38,7 @@ class LandingPage extends React.Component {
  }
 
  componentDidMount() {
-  this.recentAdded();
+  this.recentAdded(auth.isAuthenticated);
 }
 
 
@@ -46,8 +46,8 @@ class LandingPage extends React.Component {
       return (
           <div>
             <LandingPageBox list={ this.state.itemsList } />
-            <button onClick={(e) => this.topPrice(auth.isAuthenticated) } className="btn btn-primary" style={{margin: "5px"}}>Top Price</button>
-            <button onClick={(e) => this.recentAdded()} className="btn btn-primary" style={{margin: "5px"}}>Recent Added</button>
+            <button onClick={(e) => this.topPrice(auth.isAuthenticated)} className="btn btn-primary" style={{margin: "5px"}}>Top Price</button>
+            <button onClick={(e) => this.recentAdded(auth.isAuthenticated)} className="btn btn-primary" style={{margin: "5px"}}>Recent Added</button>
           </div>
       )
   }
