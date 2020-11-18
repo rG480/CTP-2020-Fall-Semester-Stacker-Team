@@ -10,7 +10,6 @@ class ItemListBox extends React.Component {
             <div>
                 <div>
                 <ItemList items={this.props.list} />
-                <ItemList items={this.props.list} />
                 </div>
             </div>
         )
