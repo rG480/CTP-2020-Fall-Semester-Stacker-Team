@@ -31,7 +31,7 @@ import AllUsersDisplayPage from './pages/AllUsersDisplayPage';
      });
   }
 componentDidMount(){
-  console.log(auth.isAuthenticated)
+ /* console.log(auth.isAuthenticated)
   if (!auth.isAuthenticated){
     fetch('/api/amILoggedIn/').then((response) => {
       if(!response.ok) {
@@ -42,7 +42,7 @@ componentDidMount(){
       }
 
     })
-  }
+  }*/
 }
 render(){
   let button;

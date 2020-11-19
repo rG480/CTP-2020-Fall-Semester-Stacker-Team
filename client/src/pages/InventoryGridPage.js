@@ -2,6 +2,7 @@ import React from 'react';
 import UserInfo from '../components/UserInfo';
 import ItemListBox from '../components/ItemListBox';
 import Loading from '../components/Loading'
+import ItemExpanded from '../components/ItemExpanded';
 
 class InventoryGridPage extends React.Component {
   constructor(props){
@@ -46,7 +47,7 @@ class InventoryGridPage extends React.Component {
         <div style={{maxWidth: "1000px"}}>
   
             <ItemListBox list={this.state.itemsList}/>
-
+            <ItemExpanded list={this.state.itemsList[0]}/>
         </div>
     </div>
     )
