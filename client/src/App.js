@@ -31,23 +31,23 @@ import AllUsersDisplayPage from './pages/AllUsersDisplayPage';
      });
   }
 componentDidMount(){
- /* console.log(auth.isAuthenticated)
-  if (!auth.isAuthenticated){
+  console.log(auth.isAuthenticated)
+  if (!this.state.auth){
     fetch('/api/amILoggedIn/').then((response) => {
-      if(!response.ok) {
-        this.isAuthenticated=false;
+      if(response.ok) {
+        this.setState({
+          auth:true
+        })
       }
-      else{
-          this.isAuthenticated=true;
-      }
+      
 
     })
-  }*/
+  }
 }
 render(){
   let button;
-  if(auth.isAuthenticated){
-     button = <button>Logout</button>
+  if(this.state.auth){
+     button = <button onClick={ auth.signout}>Logout</button>
    
    }
   else{
@@ -86,7 +86,7 @@ render(){
         </li>
         <li className="nav-item">
           <NavLink className="nav-link" exact to="/displayUsers">
-            Inventory Grid
+           Users
           </NavLink>
         </li>
         <li>

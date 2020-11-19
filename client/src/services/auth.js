@@ -40,7 +40,7 @@ const auth = {
           return response.json();
         })
         .then((body) => {
-          this.isAuthenticated = false;
+          //this.isAuthenticated = false;
           return body;
         });
     },
@@ -62,18 +62,7 @@ const auth = {
         return body;
       });
     },
-    /*amILoggedIn(){
-        return fetch('/api/protected').then((response) => {
-            if(!response.ok) {
-              this.isAuthenticated=false;
-            }
-            else{
-                this.isAuthenticated=true;
-            }
     
-          })
-        
-    }*/
   }
   
   export default auth; 

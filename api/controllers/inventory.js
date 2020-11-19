@@ -10,6 +10,7 @@ router.get('/', (req,res) => {
 router.post('/',passport.isAuthenticated(), (req, res) => {
    
     let  content  = req.body;
+  
 
     Inventory.create({name: content.name,
         quantity: content.quantity,
