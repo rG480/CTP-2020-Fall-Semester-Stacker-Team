@@ -28,6 +28,9 @@ class InventoryGridPage extends React.Component {
       .then(([inv, user]) => {
         this.setState({itemsList: inv, userList: user})
  
+      })
+      .catch(err => {
+        console.log("error")
       });
 }
 

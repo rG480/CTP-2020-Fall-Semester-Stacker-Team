@@ -3,8 +3,8 @@ const router = express.Router();
 const db = require('../models');
 const { Inventory } = db;
 const passport =  require('../middlewares/authentication');
-router.get('/', (req,res) => {
-    Inventory.findAll({where:{OwnerId: req.session.user}, order: [[ 'createdAt' , 'DESC']]})
+router.get('/',passport.isAuthenticated(), (req,res) => {
+    Inventory.findAll({where:{OwnerId: req["user"].id}, order: [[ 'createdAt' , 'DESC']]})
     .then(inv => res.json(inv));
 });
 router.post('/',passport.isAuthenticated(), (req, res) => {

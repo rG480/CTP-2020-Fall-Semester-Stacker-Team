@@ -30,6 +30,11 @@ import AllUsersDisplayPage from './pages/AllUsersDisplayPage';
       showModal:this.state.showModal ? false : true
      });
   }
+signout(){
+  auth.signout();
+  window.location.reload(false);
+  //this.setState({auth:false})
+}
 componentDidMount(){
   console.log(auth.isAuthenticated)
   if (!this.state.auth){
@@ -47,7 +52,7 @@ componentDidMount(){
 render(){
   let button;
   if(this.state.auth){
-     button = <button onClick={ auth.signout}>Logout</button>
+     button = <button onClick={ e=>this.signout(e)}>Logout</button>
    
    }
   else{
