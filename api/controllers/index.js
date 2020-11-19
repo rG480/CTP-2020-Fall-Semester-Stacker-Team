@@ -11,7 +11,8 @@ const topPrice = require('./topPrice.js');
 const recentAdded = require('./recentAdded.js');
 const lqcontroller = require('./loginChecker.js');
 const loggedInUser = require('./loggedInUser.js');
-
+const usersPage = require('./usersPage.js');
+const loginChecker = require('./amILoggedIn.js');
 // Mount each controller under a specific route. These
 // will be prefixes to all routes defined inside the controller
 router.use('/auth', authController);
@@ -22,5 +23,6 @@ router.use('/topPrice', topPrice);
 router.use('/recentAdded', recentAdded);
 router.use('/amIloggedIn', lqcontroller);
 router.use('/loggedInUser', loggedInUser);
-
+router.use('/usersPage',usersPage);
+router.use('/amILoggedIn',loginChecker);
 module.exports = router;

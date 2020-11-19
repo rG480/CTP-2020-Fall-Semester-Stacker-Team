@@ -1,7 +1,7 @@
 import React from 'react';
 import UserInfo from '../components/UserInfo';
 import ItemListBox from '../components/ItemListBox';
-import auth from '../services/auth';
+import Loading from '../components/Loading'
 
 class InventoryGridPage extends React.Component {
   constructor(props){
@@ -35,7 +35,7 @@ class InventoryGridPage extends React.Component {
     render(){
       let renderedContent
       if(!this.state.itemsList.length && !this.state.userList.length){
-        renderedContent= (<span></span>)
+        renderedContent= (<span><Loading/></span>)
       }
       else {
         renderedContent=  (  

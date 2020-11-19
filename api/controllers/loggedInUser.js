@@ -7,7 +7,7 @@ const { Users } = db;
 
 
 router.get('/', (req,res) => {
-        let id = req.session.user; 
+        let id = req["user"].id; 
         Users.findAll({where: {id: id}})
         .then(user => res.json(user));
 });

@@ -9,7 +9,7 @@ router.get('/:loggedIn', (req,res) => {
      const loggedIn = (req.params.loggedIn==='true');
    
     if (req["user"]) {
-        let id = req["user"]; 
+        let id = req["user"].id; 
         Inventory.findAll({where: {public: true,OwnerId:{[op.not]:id}}, order: [[ 'createdAt' , 'DESC']]})
         .then(inv => res.json(inv));
     } 

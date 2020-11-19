@@ -13,12 +13,14 @@ import InventoryPage from './pages/InventoryPage';
 import InventoryGridPage from './pages/InventoryGridPage';
 import LoginModal from './components/LoginModal'
 import auth from './services/auth'
+import AllUsersDisplayPage from './pages/AllUsersDisplayPage';
 //auth.amILoggedIn();
  class Navigation extends React.Component {
   constructor(props){
     super(props)
     this.state={
-      showModal:false
+      showModal:false,
+      auth:false
     }
     this.toggler = this.toggleModal.bind(this)
   }
@@ -28,15 +30,29 @@ import auth from './services/auth'
       showModal:this.state.showModal ? false : true
      });
   }
+componentDidMount(){
+  console.log(auth.isAuthenticated)
+  if (!auth.isAuthenticated){
+    fetch('/api/amILoggedIn/').then((response) => {
+      if(!response.ok) {
+        this.isAuthenticated=false;
+      }
+      else{
+          this.isAuthenticated=true;
+      }
+
+    })
+  }
+}
 render(){
   let button;
-  // if(auth.isAuthenticated){
-  //   button = <button>Logout</button>
+  if(auth.isAuthenticated){
+     button = <button>Logout</button>
    
-  // }
-  //else{
+   }
+  else{
     button=   <button onClick={this.toggler}>Login</button>
-  //}
+  }
   return (<div>
       <LoginModal show={this.state.showModal} hide={this.toggler}></LoginModal>
     <nav className="navbar navbar-expand-sm navbar-dark bg-dark shadow mb-3">
@@ -59,12 +75,17 @@ render(){
           </NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" exact to="/about-us">
+          <NavLink className="nav-link" exact to="/aboutUs">
             About Us
           </NavLink>
         </li>
         <li className="nav-item">
           <NavLink className="nav-link" exact to="/inventoryGridPage">
+            Inventory Grid
+          </NavLink>
+        </li>
+        <li className="nav-item">
+          <NavLink className="nav-link" exact to="/displayUsers">
             Inventory Grid
           </NavLink>
         </li>
@@ -92,8 +113,9 @@ class App extends React.Component {
               <Switch>
                 <Route path="/landing" component={LandingPage} />
                 <Route path="/collection" component={InventoryPage}/>
-                <Route path="/about-us" component={AboutUsPage} />
+                <Route path="/aboutUs" component={AboutUsPage} />
                 <Route path="/inventoryGridPage" component={InventoryGridPage}/>
+                <Route path="/displayUsers" component={AllUsersDisplayPage}/>
               </Switch>
             </div>
           </div>

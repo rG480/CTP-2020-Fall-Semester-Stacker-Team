@@ -1,8 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
+router.get('/', (req, res) => {
+      if(req["user"]){
+        res.status(200)
+      }
+});
 
-router.get('/', (req,res) => {
-   
-  });
+
 module.exports = router;
