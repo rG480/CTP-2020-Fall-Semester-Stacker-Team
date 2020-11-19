@@ -8,8 +8,8 @@ router.get('/:loggedIn', (req,res) => {
      //convert URL string param into boolean val
      const loggedIn = (req.params.loggedIn==='true');
    
-    if (loggedIn ===true) {
-        let id = req.session.user; 
+    if (req["user"]) {
+        let id = req["user"]; 
         Inventory.findAll({where: {public: true,OwnerId:{[op.not]:id}}, order: [[ 'createdAt' , 'DESC']]})
         .then(inv => res.json(inv));
     } 
