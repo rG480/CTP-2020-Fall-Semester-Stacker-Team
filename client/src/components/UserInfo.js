@@ -45,13 +45,16 @@ class UserInfo extends React.Component {
       })
       .then(post => {
         alert("Success!")
+        this.props.newItem();
         this.setState({
           showModal:false
         })
+       
       })
       .catch(err => {
         alert("error :3")
       });
+      
   }
     render () {
      console.log(this.props.list)
