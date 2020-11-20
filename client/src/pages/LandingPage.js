@@ -20,7 +20,7 @@ class LandingPage extends React.Component {
     fetch('/api/topPrice/')
     .then(res => res.json())
     .then(post => {
-     alert(post.length)
+    //  alert(post.length)
       this.setState({itemsList:post, buttonPressed: 'topPrice'}) 
   })
   }
@@ -31,7 +31,7 @@ class LandingPage extends React.Component {
     fetch('/api/recentAdded/')
     .then(res => res.json())
     .then(post => {
-    alert(post.length)
+    // alert(post.length)
       this.setState({itemsList:post, buttonPressed: 'recentAdded'}) 
     })
   }
@@ -46,14 +46,13 @@ class LandingPage extends React.Component {
       return (
           <div style={{padding: "50px"}}>
             <LandingPageBox list={ this.state.itemsList } />
-            <button onClick={(e) => this.topPrice()} className="btn btn-primary" style={{margin: "5px"}}>Top Price</button>
-            <button onClick={(e) => this.recentAdded()} className="btn btn-primary" style={{margin: "5px"}}>Recent Added</button>
+            <div style={{padding: "15px"}}>
+              <button onClick={(e) => this.topPrice()} className="btn btn-primary" style={{margin: "5px"}}>Top Price</button>
+              <button onClick={(e) => this.recentAdded()} className="btn btn-primary" style={{margin: "5px"}}>Recent Added</button>
+            </div>
           </div>
       )
   }
-
-
-
 }
 
 export default LandingPage;

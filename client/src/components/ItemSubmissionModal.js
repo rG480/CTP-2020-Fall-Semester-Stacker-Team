@@ -18,9 +18,9 @@ class AddItemModal extends React.Component{
  
     }
     
-    alertText(){
-      alert(this.state.quantity)
-    }
+    // alertText(){
+    //   alert(this.state.quantity)
+    // }
     render(){
     return(<Modal show={this.props.show} onHide={this.props.hide}>
       <Modal.Header closeButton>
