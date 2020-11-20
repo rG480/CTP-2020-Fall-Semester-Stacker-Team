@@ -20,25 +20,28 @@ class LoginModal extends React.Component{
         auth.authenticate(email, password)
           .then((user) => {
             this.setState({ redirectToReferrer: true });
+            this.props.setAuth(true);
             this.props.hide();
-            localStorage.setItem('email',user.userEmail)
+          
           })
           .catch((err) => {
             this.setState({ failed: true });
           });
-       
+          window.location.reload(false);
       }
       signup=(e)=>{
         let{username,email,password} =this.state;
         auth.signin(username, email, password)
         .then((user) => {
           this.setState({ redirectToReferrer: true });
+          this.props.setAuth(true);
           this.props.hide();
-          localStorage.setItem('email',user.userEmail)
+          
         })
         .catch((err) => {
           this.setState({ failed: true });
         });
+        window.location.reload(false);
       }
     render(){
         let renderThis

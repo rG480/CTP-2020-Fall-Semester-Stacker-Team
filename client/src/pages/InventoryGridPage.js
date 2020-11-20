@@ -41,6 +41,19 @@ class InventoryGridPage extends React.Component {
       if(!this.state.itemsList.length && !this.state.userList.length){
         renderedContent= (<span><Loading/></span>)
       }
+      else if (this.state.itemsList.length ===0){
+        renderedContent=  (  
+          <div className="row flex-nowrap justify-content-md-center">
+          <div className="justify-left">
+              <UserInfo list={ this.state.userList[0] }/>
+          </div>
+          <div style={{maxWidth: "1000px"}}>
+    
+             
+          </div>
+      </div>
+      )
+      }
       else {
         renderedContent=  (  
         <div className="row flex-nowrap justify-content-md-center">

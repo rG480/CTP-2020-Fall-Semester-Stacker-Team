@@ -4,7 +4,7 @@ const db = require('../models');
 const sq = require('sequelize');
 const { Inventory } = db;
 const op = sq.Op;
-router.get('/:loggedIn', (req,res) => {
+router.get('/', (req,res) => {
      //convert URL string param into boolean val
      const loggedIn = (req.params.loggedIn==='true');
    
