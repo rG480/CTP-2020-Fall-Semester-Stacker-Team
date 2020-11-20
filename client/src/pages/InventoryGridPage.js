@@ -70,9 +70,9 @@ class InventoryGridPage extends React.Component {
     
   
   return (
-    renderedContent
-    
-
+    <div style={{padding: "50px"}}>
+      { renderedContent }
+    </div>
   );
   }
 }
