@@ -10,7 +10,7 @@ class ItemList extends React.Component {
         let List = []
         for (let i = 0; i < this.props.items.length; i++) {
             List.push(
-                <Item itemContent={this.props.items[i]}/>
+                <Item itemContent={this.props.items[i]} user={this.props.user}/>
             );
         }
         

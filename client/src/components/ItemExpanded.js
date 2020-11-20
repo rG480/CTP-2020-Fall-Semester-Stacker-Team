@@ -6,6 +6,15 @@ class ItemExpanded extends React.Component {
         super(props)
     }
     render () {
+       let addedButtons;
+        if (this.props.user && this.props.user.id === this.props.list.OwnderId) {
+            addedButtons = (
+                <div >
+                    <button className="btn btn-primary" style={{margin: "5px"}}>Edit</button>
+                    <button  className="btn btn-primary" style={{margin: "5px"}}>Delete</button>
+                </div>
+            );
+        }
         let currPrice = this.props.list.currentPrice;
         let purPrice = this.props.list.purchasePrice;
         let profit = currPrice - purPrice;
@@ -31,6 +40,10 @@ class ItemExpanded extends React.Component {
                        <li className="list-group-item text-left"> { currentMoneyStanding + profit } </li>
                        <li className="list-group-item text-left">Description: { this.props.list.description }</li>    
             </ul>
+            <div className="d-flex justify-content-end" style={{paddingTop: "15px"}}>
+                { addedButtons }
+            </div>
+          
             </Modal.Body>
             </Modal>
         );
