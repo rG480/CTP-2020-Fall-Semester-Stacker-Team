@@ -1,6 +1,6 @@
 import React from 'react';
 import Loading from '../components/Loading';
-import UserInfo from '../components/UserInfo';
+import UserInfoPublic from '../components/UserInfoPublic';
 
 class AllUsersDisplayPage extends React.Component{
     constructor(props){
@@ -26,13 +26,25 @@ class AllUsersDisplayPage extends React.Component{
        else{
           let userList = []
           for(let i=0;i<this.state.usersList.length;i++){
-             userList.push(<UserInfo list={ this.state.usersList[i] }/>)
+             userList.push(<UserInfoPublic list={ this.state.usersList[i] }/>)
           }
           renderedContent= (userList)
        }
 
-
-       return(<div>{renderedContent}</div>);
+       return(
+        <div className="container"style={{ paddingTop: "50px"}}>
+                <div className="row justify-content-center">
+                    {/* <div className="col">
+                    </div> */}
+                    <div className="row wrap">
+                        { renderedContent }
+                    </div>
+                    {/* <div className="col">
+                    </div> */}
+                </div>
+            </div>
+       );
+    //    return(<div>{renderedContent}</div>);
     }
 }
 

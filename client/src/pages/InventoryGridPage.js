@@ -62,8 +62,8 @@ class InventoryGridPage extends React.Component {
         </div>
         <div style={{maxWidth: "1000px"}}>
   
-            <ItemListBox list={this.state.itemsList}/>
-            <ItemExpanded list={this.state.itemsList[0]}/>
+            <ItemListBox list={this.state.itemsList} user={this.state.userList}/>
+         {/*    <ItemExpanded list={this.state.itemsList[0]}/> */}
         </div>
     </div>
     )
