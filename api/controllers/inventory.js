@@ -1,11 +1,16 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../models');
-const { Inventory } = db;
+const { Inventory,Users } = db;
 const passport =  require('../middlewares/authentication');
 router.get('/',passport.isAuthenticated(), (req,res) => {
     Inventory.findAll({where:{OwnerId: req["user"].id}, order: [[ 'createdAt' , 'DESC']]})
     .then(inv => res.json(inv));
+});
+router.get('/:email', (req,res) => {
+ // Users.findAll({where:{userEmail:req.params.email}});
+  Inventory.findAll({where:{OwnerId: id}, order: [[ 'createdAt' , 'DESC']]})
+  .then(inv => res.json(inv));
 });
 router.post('/',passport.isAuthenticated(), (req, res) => {
    
@@ -36,7 +41,7 @@ router.post('/',passport.isAuthenticated(), (req, res) => {
         }
   
         item.destroy();
-        res.sendStatus(204);
+        res.sendStatus(200);
       });
   });
   module.exports = router;
