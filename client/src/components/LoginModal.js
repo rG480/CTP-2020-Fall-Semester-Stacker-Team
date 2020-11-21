@@ -27,7 +27,7 @@ class LoginModal extends React.Component{
           .catch((err) => {
             this.setState({ failed: true });
           });
-          window.location.reload(false);
+        
       }
       signup=(e)=>{
         let{username,email,password} =this.state;

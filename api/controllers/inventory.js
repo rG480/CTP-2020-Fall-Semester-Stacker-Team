@@ -8,9 +8,10 @@ router.get('/',passport.isAuthenticated(), (req,res) => {
     .then(inv => res.json(inv));
 });
 router.get('/:email', (req,res) => {
- // Users.findAll({where:{userEmail:req.params.email}});
-  Inventory.findAll({where:{OwnerId: id}, order: [[ 'createdAt' , 'DESC']]})
-  .then(inv => res.json(inv));
+  Users.findAll({ raw: true,attributes: ['id'],where:{userEmail:req.params.email}}).then( user=>
+    Inventory.findAll({where:{OwnerId:user[0].id,public:true}, order: [[ 'createdAt' , 'DESC']]})
+    ).then(inv => res.json(inv));
+
 });
 router.post('/',passport.isAuthenticated(), (req, res) => {
    
