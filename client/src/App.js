@@ -15,6 +15,7 @@ import LoginModal from './components/LoginModal'
 import PrivateRoute from './components/PrivateRoute';
 import auth from './services/auth'
 import AllUsersDisplayPage from './pages/AllUsersDisplayPage';
+import PublicGalleryPage from './pages/PublicGalleryPage'
 import{ Redirect } from 'react-router-dom';
  class Navigation extends React.Component {
   constructor(props){
@@ -122,10 +123,11 @@ class App extends React.Component {
             <div className="row justify-content-center">
               <Switch>
                 <Route path="/landing" component={LandingPage} />
-                <Route path="/collection" component={InventoryPage}/>
+                <Route path="/yourCollection" component={InventoryPage}/>
                 <Route path="/aboutUs" component={AboutUsPage} />
                 <PrivateRoute path="/inventoryGridPage" component={InventoryGridPage}/>
                 <Route path="/displayUsers" component={AllUsersDisplayPage}/>
+                <Route path="/userGallery/" component={PublicGalleryPage}/>
               </Switch>
             </div>
           </div>

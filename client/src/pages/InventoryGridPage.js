@@ -11,17 +11,13 @@ class InventoryGridPage extends React.Component {
       itemsList:'',
       userList: '',
     }
+    this.newItm= this.addedItem.bind(this)
   }
-  // componentDidMount() {
-  //   fetch("/api/inv/")
-  //   .then(res => res.json())
-  //   .then(post => {
-  //   //alert(post.length)
-  //     this.setState({itemsList:post}) 
-  //   })
-
-  // }
-
+  
+ addedItem(){
+   this.componentDidMount()
+  
+ }
   componentDidMount() {
     Promise.all([fetch("/api/inv/"), fetch('/api/loggedInUser/')])
       .then(([inv, user]) => { return Promise.all([inv.json(), user.json()]) })
@@ -58,7 +54,7 @@ class InventoryGridPage extends React.Component {
         renderedContent=  (  
         <div className="row flex-nowrap justify-content-md-center">
         <div className="justify-left">
-            <UserInfo list={ this.state.userList[0] }/>
+            <UserInfo newItem={this.newItm} list={ this.state.userList[0] }/>
         </div>
         <div style={{maxWidth: "1000px"}}>
   
