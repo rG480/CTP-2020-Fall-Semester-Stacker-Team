@@ -78,7 +78,7 @@ class InventoryTable extends React.Component {
                         </TableRow>
                         </TableHead>
                         <TableBody>
-                            {this.state.itemsList((row) => (
+                            {this.state.itemsList.map((row) => (
                                 <TableRow key={row.name}>
                                 <TableCell component="th" scope="row">
                                     {row.name}
