@@ -94,8 +94,7 @@ class InventoryTable extends React.Component {
             </div>
         );
     
-        }
-        
+        }        
 }
 
 export default InventoryTable;
