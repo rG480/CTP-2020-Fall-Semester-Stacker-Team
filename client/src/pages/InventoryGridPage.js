@@ -11,10 +11,10 @@ class InventoryGridPage extends React.Component {
       itemsList:'',
       userList: '',
     }
-    this.reload= this.reloadContent.bind(this)
+    this.refreshPage = this.refreshPage.bind(this)
   }
   
- reloadContent(){
+ refreshPage(){
    this.componentDidMount()
   
  }
@@ -54,11 +54,11 @@ class InventoryGridPage extends React.Component {
         renderedContent=  (  
         <div className="row flex-nowrap justify-content-md-center">
         <div className="justify-left">
-            <UserInfo newItem={this.reload} list={ this.state.userList[0] }/>
+            <UserInfo refreshPage ={this.refreshPage} list={ this.state.userList[0] }/>
         </div>
         <div style={{maxWidth: "1000px"}}>
   
-            <ItemListBox list={this.state.itemsList} user={this.state.userList}/>
+            <ItemListBox list={this.state.itemsList} user={this.state.userList} refreshPage ={this.refreshPage}/>
          {/*    <ItemExpanded list={this.state.itemsList[0]}/> */}
         </div>
     </div>

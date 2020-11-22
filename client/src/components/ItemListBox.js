@@ -22,7 +22,7 @@ class ItemListBox extends React.Component {
         return (
             <div>
                 <div>
-                <ItemList items={this.props.list} user={this.props.user} />
+                <ItemList items={this.props.list} user={this.props.user} refreshPage={this.props.refreshPage} />
                 <TableViewModal items={this.props.list}show={this.state.tableToggle} hide={this.toggle}></TableViewModal>
                 <Button onClick={this.toggle}>Table View</Button>
                 </div>

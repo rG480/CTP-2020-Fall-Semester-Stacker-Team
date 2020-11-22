@@ -30,7 +30,7 @@ class Item extends React.Component {
                 </div>
                 <div className="card-footer small text-muted text-right">
                     <p> {this.props.itemContent.currentPrice }</p>
-                    <ItemExpanded list={this.props.itemContent} show={this.state.showModal} hide= {this.toggleModal} user={this.props.user} ></ItemExpanded>
+                    <ItemExpanded list={this.props.itemContent} show={this.state.showModal} hide= {this.toggleModal} user={this.props.user}  refreshPage={this.props.refreshPage}></ItemExpanded>
                 </div>  
             </div>
             </div>

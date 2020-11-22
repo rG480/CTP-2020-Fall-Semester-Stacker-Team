@@ -45,7 +45,7 @@ class UserInfo extends React.Component {
       })
       .then(post => {
         alert("Success!")
-        this.props.newItem();
+        this.props.refreshPage();
         this.setState({
           showModal:false
         })

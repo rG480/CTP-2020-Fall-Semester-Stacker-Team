@@ -18,9 +18,12 @@ class ItemExpanded extends React.Component {
         fetch("/api/inv/" + this.props.list.id, {
             method: 'DELETE',
 
-    }).
-    then(alert("bye bye, " + this.props.list.name ))
-}
+    })
+    .then(post => {
+        this.props.refreshPage();
+        this.props.hide();
+})
+    }
 
 
     render () {
