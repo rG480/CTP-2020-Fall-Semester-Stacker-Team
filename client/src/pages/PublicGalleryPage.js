@@ -8,10 +8,16 @@ class PublicGalleryPage extends React.Component {
       }
      
     }
+  componentDidMount(){
+    fetch("/api/inv/"+this.props.location.state.params.id2)
+    .then(res=>{ return res.json()})
+    .then(ans=>console.log(ans))
+  }
   render(){
    
     alert(this.props.location.state.params.id1)
     alert( this.props.location.state.params.id2)
+    
     return (
       <div>Yo buddy</div>
     );

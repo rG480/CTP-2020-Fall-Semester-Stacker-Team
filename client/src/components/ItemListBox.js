@@ -18,11 +18,12 @@ class ItemListBox extends React.Component {
         console.log(this.state.tableToggle)
     }
     render () {
+        
         return (
             <div>
                 <div>
                 <ItemList items={this.props.list} user={this.props.user} />
-                <TableViewModal show={this.state.tableToggle} hide={this.toggle}></TableViewModal>
+                <TableViewModal items={this.props.list}show={this.state.tableToggle} hide={this.toggle}></TableViewModal>
                 <Button onClick={this.toggle}>Table View</Button>
                 </div>
             </div>

@@ -12,7 +12,7 @@ class TableViewModal extends React.Component{
     }
     
     render(){
-        
+        console.log(this.props.items)
         
     return( 
       <Modal show={this.props.show} onHide={this.props.hide}>
@@ -22,7 +22,7 @@ class TableViewModal extends React.Component{
             
           </Modal.Header>
           <Modal.Body>
-          <Table></Table>
+          <Table itemsList={this.props.items}></Table>
          </Modal.Body>
          <Modal.Footer>
          <Button variant="secondary" onClick={e=>this.props.hide()}>Close</Button>

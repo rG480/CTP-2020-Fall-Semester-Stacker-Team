@@ -10,7 +10,7 @@ class InventoryTable extends React.Component {
     }
 
 
-    componentDidMount() {
+  /*  componentDidMount() {
         Promise.all([fetch("/api/inv/"), fetch('/api/loggedInUser/')])
           .then(([inv, user]) => { return Promise.all([inv.json(), user.json()]) })
           .then(([inv, user]) => {
@@ -18,7 +18,7 @@ class InventoryTable extends React.Component {
      
         });
         console.log(this.state.itemsList)
-    }
+    }*/
 
     
 
@@ -59,7 +59,7 @@ class InventoryTable extends React.Component {
             }
         ];
         
-
+      
         return (
             <div> 
                 <TableContainer>
@@ -78,15 +78,15 @@ class InventoryTable extends React.Component {
                         </TableRow>
                         </TableHead>
                         <TableBody>
-                            {this.state.itemsList.map((row) => (
+                            {this.props.itemsList.map((row) => (
                                 <TableRow key={row.name}>
                                 <TableCell component="th" scope="row">
                                     {row.name}
                                 </TableCell>
-                                <TableCell align="right">{row.qty}</TableCell>
-                                <TableCell align="right">{row.date_added}</TableCell>
-                                <TableCell align="right">{row.price_bought}</TableCell>
-                                <TableCell align="right">{row.price_curr}</TableCell>
+                                <TableCell align="right">{row.quantity}</TableCell>
+                                <TableCell align="right">{row.dateAdded}</TableCell>
+                                <TableCell align="right">{row.purchasePrice}</TableCell>
+                                <TableCell align="right">{row.currentPrice}</TableCell>
                                 </TableRow>))}
                         </TableBody>
                     </Table>
