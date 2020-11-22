@@ -39,11 +39,13 @@ signout(){
   
 }
 setAuth(login){
+  console.log(login)
   if(login===true){
   this.setState({
     auth:true
   })
   auth.isAuthenticated=true;
+  console.log(this.state.auth)
   }
   else if (login===false){
     this.setState({
@@ -68,7 +70,11 @@ render(){
   let button;
   let inv;
   if(this.state.auth){
+<<<<<<< HEAD
      button = <button className="btn btn-dark" onClick={ e=>this.signout(e)}>Logout</button>
+=======
+     button = <button className="navbar navbar-expand-sm navbar-dark bg-dark shadow mb-3" onClick={ e=>this.signout(e)}>Logout</button>
+>>>>>>> eab0f3ce6b22df02db6dca8d55fb8e047828d649
      inv =( <li className="nav-item">
      <NavLink className="nav-link btn btn-dark" exact to="/inventoryGridPage">
        Your Inventory
