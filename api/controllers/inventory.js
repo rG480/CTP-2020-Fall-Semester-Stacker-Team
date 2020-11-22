@@ -16,7 +16,6 @@ router.get('/:email', (req,res) => {
 router.post('/',passport.isAuthenticated(), (req, res) => {
    
     let  content  = req.body;
-  
 
     Inventory.create({name: content.name,
         quantity: content.quantity,
@@ -33,6 +32,7 @@ router.post('/',passport.isAuthenticated(), (req, res) => {
         res.status(401).json(err);
       });
   });
+
   router.delete('/:id', (req, res) => {
     const { id } = req.params;
     Inventory.findByPk(id)

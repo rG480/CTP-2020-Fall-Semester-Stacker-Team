@@ -1,14 +1,24 @@
 import React from 'react';
 import Modal from 'react-bootstrap/Modal';
+import AddItemModal from './ItemSubmissionModal';
 
 
 class ItemExpanded extends React.Component {
     constructor(props){
         super(props)
-        
-        this.confirmDelete = this.confirmDelete.bind(this);
+        this.state={
+            showModal:false,
         }
-      
+        this.toggleModal = this.handleSelect.bind(this)
+        this.confirmDelete = this.confirmDelete.bind(this);
+    }
+
+    handleSelect(){
+        this.setState({
+          showModal: this.state.showModal ? false : true
+        })
+    }
+
     confirmDelete() {
         let deleteItem = window.confirm("Are you sure you want to delete " + this.props.list.name  + "?" );
         if (deleteItem) {this.itemDeleted()};
@@ -17,13 +27,19 @@ class ItemExpanded extends React.Component {
     itemDeleted() {
         fetch("/api/inv/" + this.props.list.id, {
             method: 'DELETE',
-
     })
     .then(post => {
         this.props.refreshPage();
         this.props.hide();
-})
+    })
     }
+
+    itemEdit() {
+        fetch("/api/inv/" + this.props.list.id, {
+            method: 'PUT',
+    })
+}
+    
 
 
     render () {
@@ -31,7 +47,7 @@ class ItemExpanded extends React.Component {
         if (this.props.user && this.props.user.id === this.props.list.OwnderId) {
             addedButtons = (
                 <div >
-                    <button className="btn btn-primary" style={{margin: "5px"}}>Edit</button>
+                    <button className="btn btn-primary" style={{margin: "5px"}} onClick={this.toggleModal}>Edit</button>
                     <button className="btn btn-primary" style={{margin: "5px"}} onClick={this.confirmDelete}>Delete</button>
                 </div>
             );
@@ -62,10 +78,9 @@ class ItemExpanded extends React.Component {
                        <li className="list-group-item text-left">Description: { this.props.list.description }</li>    
             </ul>
             <div className="d-flex justify-content-end" style={{paddingTop: "15px"}}>
-               
                 { addedButtons }
+                <AddItemModal show={this.state.showModal} hide= {this.toggleModal}></AddItemModal>
             </div>
-            
             </Modal.Body>
             </Modal>
         );

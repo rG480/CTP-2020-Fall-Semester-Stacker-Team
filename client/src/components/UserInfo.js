@@ -11,11 +11,13 @@ class UserInfo extends React.Component {
     this.toggleModal = this.handleSelect.bind(this)
     this.submit = this.handleSubmission.bind(this)
   }
+  
   handleSelect(){
     this.setState({
       showModal: this.state.showModal ? false : true
     })
   }
+
   handleSubmission(name,quant,initPrice,currPrice,date,desc,pub){
     
     let jsonToSend= {
@@ -64,7 +66,7 @@ class UserInfo extends React.Component {
         <div className="card" >
           <img className="card-img-top" src=".." alt="userImage.jpg"></img>
           <ul className="list-group list-group-flush">
-    <li className="list-group-item"> {this.props.list.userName } </li>
+            <li className="list-group-item"> {this.props.list.userName } </li>
             <li class="list-group-item"> {this.props.list.userEmail} </li> 
           </ul>
           <div className="card-body">

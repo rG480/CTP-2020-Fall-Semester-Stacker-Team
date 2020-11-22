@@ -15,22 +15,17 @@ class TableViewModal extends React.Component{
         console.log(this.props.items)
         
     return( 
-      <Modal show={this.props.show} onHide={this.props.hide}>
-          <Modal.Header closeButton>
-            <Modal.Title>Modal title</Modal.Title>
-
-            
-          </Modal.Header>
-          <Modal.Body>
+      <Modal size="xl" show={this.props.show} onHide={this.props.hide} >
+        <Modal.Header closeButton>
+          <Modal.Title>Modal title</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
           <Table itemsList={this.props.items}></Table>
-         </Modal.Body>
-         <Modal.Footer>
-         <Button variant="secondary" onClick={e=>this.props.hide()}>Close</Button>
-       </Modal.Footer>
-          
-      </Modal>
-      
-     
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={e=>this.props.hide()}>Close</Button>
+        </Modal.Footer>
+      </Modal>     
     );}
   }
   export default TableViewModal;

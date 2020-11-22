@@ -61,7 +61,7 @@ class InventoryTable extends React.Component {
         
       
         return (
-            <div> 
+            <div > 
                 <TableContainer>
                     <Table stickyHeader aria-label="Label">
                         <TableHead>
