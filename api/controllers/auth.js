@@ -3,7 +3,7 @@ const { Users } = require('../models');
 const passport = require('../middlewares/authentication');
 const multer= require('multer');
 const upload = multer();
-const img= require('./imgPractice').upload;
+const img= require('../middlewares/imageHandling').upload;
 
 router.post('/signup',upload.any(), (req, res) => {
   let profileImage= req.files[0]

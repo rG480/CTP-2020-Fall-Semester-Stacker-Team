@@ -12,7 +12,7 @@ const recentAdded = require('./recentAdded.js');
 const loggedInUser = require('./loggedInUser.js');
 const usersPage = require('./usersPage.js');
 const loginChecker = require('./amILoggedIn.js');
-const imagePractice = require('./imgPractice.js');
+const imagePractice = require('../middlewares/imageHandling.js');
 // Mount each controller under a specific route. These
 // will be prefixes to all routes defined inside the controller
 router.use('/auth', authController);
@@ -24,5 +24,4 @@ router.use('/recentAdded', recentAdded);
 router.use('/loggedInUser', loggedInUser);
 router.use('/usersPage',usersPage);
 router.use('/amILoggedIn',loginChecker);
-//router.use('/imgs',imagePractice);
 module.exports = router;

@@ -49,6 +49,9 @@ module.exports = (sequelize, DataTypes) => {
        imageURL:{
          type:DataTypes.STRING,
        },
+       imageID:{
+        type:DataTypes.STRING,
+       },
        public:{
         type: DataTypes.BOOLEAN,
         validate:{

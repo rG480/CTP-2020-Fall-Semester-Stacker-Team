@@ -5,20 +5,22 @@ const { Inventory,Users } = db;
 const passport =  require('../middlewares/authentication');
 const multer= require('multer');
 const upload = multer();
-const img= require('./imgPractice').upload;
+const img= require('../middlewares/imageHandling').upload;
+const del= require('../middlewares/imageHandling').delete;
+
+
 router.get('/',passport.isAuthenticated(), (req,res) => {
     Inventory.findAll({where:{OwnerId: req["user"].id}, order: [[ 'createdAt' , 'DESC']]})
     .then(inv => res.json(inv));
 });
+
+
 router.get('/:email', (req,res) => {
   Users.findAll({ raw: true,attributes: ['id'],where:{userEmail:req.params.email}}).then( user=>
     Inventory.findAll({where:{OwnerId:user[0].id,public:true}, order: [[ 'createdAt' , 'DESC']]})
     ).then(inv => res.json(inv));
 
 });
-
-const submit = upload.fields([{ name: 'image', maxCount: 1 }, { name: 'json', maxCount: 1 }])
-
 
 router.post('/',upload.any(),passport.isAuthenticated(), (req, res) => {
     let itemImage= req.files[0]
@@ -27,17 +29,16 @@ router.post('/',upload.any(),passport.isAuthenticated(), (req, res) => {
     let imageURL;
     console.log(req.files);
     console.log(content.name)
-    img("/itemImages",itemImage).then(
-      ans=>{  return ans.url}
-    ).then(url=>{
-      console.log("hello");
+    img("/itemImages",itemImage).then(info=>{
+      console.log(info);
       Inventory.create({name: content.name,
         quantity: content.quantity,
         dateAdded: content.dateAdded,
        purchasePrice: content.purchasePrice,
        currentPrice: content.currentPrice,
        description: content.description,
-       imageURL: url,
+       imageURL: info.url,
+       imageID: info.public_id,
        public:content.pub })  
        .then(item=>item.setOwner(req["user"].id))
        .then(post => {
@@ -47,12 +48,9 @@ router.post('/',upload.any(),passport.isAuthenticated(), (req, res) => {
          res.status(401).json(err);
        }); 
     });
-  
-    
-    
-   
   });
-  router.post('/:edit',passport.isAuthenticated(), (req, res) => {
+
+ router.post('/:edit',passport.isAuthenticated(), (req, res) => {
    
     let  content  = req.body;
     
@@ -72,17 +70,22 @@ router.post('/',upload.any(),passport.isAuthenticated(), (req, res) => {
   .catch(err => {
     res.status(401).json(err);
   });
-    
+});
 
-  });
-  router.delete('/:id', (req, res) => {
+
+router.delete('/:id', (req, res) => {
     const { id } = req.params;
     Inventory.findByPk(id)
       .then(item => {
         if(!item) {
           return res.sendStatus(404);
         }
-  
+        else{
+          del(item.imageID);
+          return item;
+        }
+       
+      }).then(item=>{
         item.destroy();
         res.sendStatus(200);
       });

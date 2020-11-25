@@ -38,8 +38,8 @@ class AddItemModal extends React.Component{
         name:this.state.name,
         quantity:this.state.quantity,
         dateAdded: this.state.dateAdded,
-        purchasePrice: this.state.pPrice,
-        currentPrice: this.state.cPrice,
+        purchasePrice: parseFloat(this.state.pPrice),
+        currentPrice: parseFloat(this.state.cPrice),
         description: this.state.desc,
         pub: this.state.pub
       } 
@@ -81,8 +81,8 @@ class AddItemModal extends React.Component{
         name:this.state.name,
         quantity:this.state.quantity,
         dateAdded: this.state.dateAdded,
-        purchasePrice: this.state.pPrice,
-        currentPrice: this.state.cPrice,
+        purchasePrice: parseFloat(this.state.pPrice),
+        currentPrice: parseFloat(this.state.cPrice),
         description: this.state.desc,
         pub: this.state.pub
       } 
@@ -140,11 +140,11 @@ class AddItemModal extends React.Component{
           <br/>
          Purchase Price:
           <br/>
-          <input type="text" onChange={e=>this.setState({pPrice:parseFloat(e.target.value)})}/>
+          <input type="text" value={this.state.pPrice} onChange={e=>this.setState({pPrice:e.target.value})}/>
           <br/>
           Current Price:
           <br/>
-          <input type="text"  onChange={e=>this.setState({cPrice:parseFloat(e.target.value)})}/>
+          <input type="text" value={this.state.cPrice}  onChange={e=>this.setState({cPrice:e.target.value})}/>
           <br/>
           Description:
           <br/>

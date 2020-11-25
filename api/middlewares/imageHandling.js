@@ -1,17 +1,9 @@
 const express = require('express');
-const router = express.Router();
 const cloudinary = require('cloudinary').v2
-const multer= require('multer')
 const streamifier = require('streamifier')
-var upload = multer()
 
-//router.post('/',upload.single('image'),(req, res) => {
-  //console.log(req.file);
- // const url = "https://api.cloudinary.com/v1_1/demo/image/upload";
-  
-  //formData.append("file", req.file);
-  //formData.append("upload_preset", "docs_upload_example_us_preset");
- // cloudinary.uploader.upload(req.file, function(error, result) {console.log(result, error)});
+
+
  let streamUpload = (type,file) => {
     console.log(file)
     return new Promise((resolve, reject) => {
@@ -32,8 +24,12 @@ var upload = multer()
     let result = await streamUpload(type,file);
     return (result);
 }
-
+let del= async function del(id) {
+    let result= await cloudinary.uploader.destroy(id,function(result) { console.log(result) });
+   
+}
 
 module.exports.upload = uload;
-//});
+module.exports.delete=del;
+
 

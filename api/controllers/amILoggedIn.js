@@ -3,7 +3,7 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
       if(req["user"]){
-        res.json({'title':true})
+        res.status(200).json({'title':true})
       }
 });
 
