@@ -118,19 +118,19 @@ class AddItemModal extends React.Component{
         button =(<Button variant="primary" onClick={e=>this.editItem()} >Save changes</Button>)
       }
 
-    return(<Modal show={this.props.show} onHide={this.props.hide}>
+    return(<Modal size="sm"show={this.props.show} onHide={this.props.hide}>
       <Modal.Header closeButton>
-        <Modal.Title>Modal title</Modal.Title>
+        <Modal.Title>New Item</Modal.Title>
       </Modal.Header>
     
       <Modal.Body>
-        <p>Modal body text goes here.</p>
+        {/* <p>Modal body text goes here.</p> */}
         <form>
-          Image:
+          <b>Image:</b>
           <br/>
           <input type="file" name="files" onChange={e=>{this.setState({image:e.target.files})}} ></input>
           <br/>
-          Category:
+          <b>Category:</b>
           <br/>
           <select type="text" value={this.state.category} onChange={e=>this.setState({category:e.target.value})} >
             <option value="">Choose one..</option>
@@ -140,31 +140,31 @@ class AddItemModal extends React.Component{
             <option value="Other">Other</option>
           </select>
           <br/>
-          Item Name:
+          <b>Item Name:</b>
           <br/>
           <input type="text" value={this.state.name} onChange={e=>this.setState({name:e.target.value})} />
           <br/>
-          Quantity:
+          <b>Quantity:</b>
           <br/>
           <input type="number" value={this.state.quantity} onChange={e=>this.setState({quantity:e.target.value})}/>
           <br/>
-          Date Obtained:
+          <b>Date Obtained:</b>
           <br/>
           <DatePicker selected={this.state.dateAdded} onSelect={date=>this.setState({dateAdded:date})} ></DatePicker>
           <br/>
-          Purchase Price:
+          <b>Purchase Price:</b>
           <br/>
           <input type="text" onChange={e=>this.setState({pPrice:parseFloat(e.target.value)})}/>
           <br/>
-          Current Price:
+          <b>Current Price:</b>
           <br/>
           <input type="text"  onChange={e=>this.setState({cPrice:parseFloat(e.target.value)})}/>
           <br/>
-          Description:
+          <b>Description:</b>
           <br/>
           <textarea value={this.state.desc} onChange={e=>this.setState({desc:e.target.value})}/>
           <br/>
-          Show publically? <input type="checkbox" checked={this.state.pub} onChange={e=>this.setState({pub: this.state.pub? false : true })}></input>
+          <b>Show publically?</b> <input type="checkbox" checked={this.state.pub} onChange={e=>this.setState({pub: this.state.pub? false : true })}></input>
         </form>
       </Modal.Body>
     
