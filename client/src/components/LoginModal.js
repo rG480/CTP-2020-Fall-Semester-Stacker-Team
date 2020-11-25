@@ -10,7 +10,7 @@ class LoginModal extends React.Component{
           username:"",
           email:"",
           passWord:"",
-         
+          image:"",
         }
 
     }
@@ -31,9 +31,9 @@ class LoginModal extends React.Component{
       }
       signup=(e)=>{
         let{username,email,password} =this.state;
-        auth.signin(username, email, password)
+        console.log(this.state.image[0]);
+        auth.signin(this.state.image[0],username, email, password)
         .then((user) => {
-          this.setState({ redirectToReferrer: true });
           this.props.setAuth(true);
           this.props.hide();
           
@@ -41,7 +41,7 @@ class LoginModal extends React.Component{
         .catch((err) => {
           this.setState({ failed: true });
         });
-        window.location.reload(false);
+     //   window.location.reload(false);
       }
     render(){
         let renderThis
@@ -90,7 +90,10 @@ class LoginModal extends React.Component{
               <br/>
               <input type="text" onChange={e=>this.setState({password:e.target.value})}/>
               <br/>
-             
+              Profile Image:
+              <br/>
+              <input type="file" name="files" onChange={e=>{this.setState({image:e.target.files})}} ></input>
+              <br/>
             </form>
          </Modal.Body>
          <Modal.Footer>

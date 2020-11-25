@@ -13,13 +13,11 @@ class UserInfoPublic extends React.Component {
     }
 
     render () {
-       // const link=  generatePath("/userGallery/:user",{user:this.props.list.userName})
        return (
-         <div style={{minWidth: "225px", padding: "15px"}}>
+         <div style={{minWidth: "225px", maxWidth:"225px", padding: "15px"}}>
            <div className="card" >
              <div className="card-body">
-             <Link to={{pathname:'/userGallery/',state: { params: {id1: this.props.list.userName, id2: this.props.list.userEmail} }}} className="btn btn-lite"><img className="card-img-top" src=".." alt="userImage.jpg"></img></Link>
-            
+             <Link to={{pathname:'/userGallery/',state: { params: {id1: this.props.list.userName, id2: this.props.list.userEmail} }}} className="btn btn-lite"><img style={{width:"100%",height:"100%"}}  className="card-img-top" src={this.props.list.imageURL} alt="userImage.jpg"></img></Link>
              </div>
              <div className="card-footer small text-muted text-right">
                <h5> {this.props.list.userName }</h5>

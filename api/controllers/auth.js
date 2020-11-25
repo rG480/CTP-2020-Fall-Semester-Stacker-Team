@@ -5,21 +5,26 @@ const multer= require('multer');
 const upload = multer();
 const img= require('./imgPractice').upload;
 
-router.post('/signup',/*upload.any(),*/ (req, res) => {
-  console.log("POST body: ", req.body);
-  Users.create({
-    userName:req.body.username,
-    userEmail: req.body.email,
-    userPassword: req.body.password,
+router.post('/signup',upload.any(), (req, res) => {
+  let profileImage= req.files[0]
+  console.log(profileImage)
+  let  content  = (JSON.parse(req.body.json));
+  console.log(content.email)
+  img("/profileImages",profileImage).then(
+    pfp=>{ console.log(pfp.url); return pfp.url}
+  ).then(url=>{Users.create({
+    userName:content.username,
+    userEmail: content.email,
+    userPassword: content.password,
+    imageURL:url,
   }).then((user) => {
-      console.log(122);
-      req.login(user, () => res.status(201).json(user));
+      req.login(user, () => res.status(200).json(user));
     })
     .catch((err) => {
       res.status(400).json({ msg: 'Failed Signup', err });
     });
 });
-
+});
 router.post('/login',
     passport.authenticate('local'), 
   (req, res) => {
@@ -32,6 +37,7 @@ router.post('/login',
     res.json(req.user);
   });
 
+  
 router.post('/logout', (req, res) => {
   req.logout();
   res.status(200).json({ message: 'Logout successful' });

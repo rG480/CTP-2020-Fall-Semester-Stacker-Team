@@ -44,12 +44,15 @@ const auth = {
           return body;
         });
     },
-    signin(username,email,password){
+    signin(profileImage,username,email,password){
+      const formData = new FormData();
+      formData.append("image", profileImage);
+      formData.append("json",JSON.stringify({ username, email, password }));
       return fetch('/api/auth/signup',{
         method:'POST',
-        body: JSON.stringify({ username, email, password }),
+        body: formData,
         headers:{
-          'Content-Type': 'application/json',
+         // 'Content-Type': 'application/json',
         }
       }).then((response)=>{
         if (!response.ok){

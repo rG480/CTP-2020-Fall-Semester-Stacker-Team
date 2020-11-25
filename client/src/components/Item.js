@@ -25,7 +25,7 @@ class Item extends React.Component {
       
             <div className="" style={{maxWidth: "250px",  padding: "10px"}}>
             <div className="shadow" >
-                <button onClick={this.toggleModal} className="btn btn-lite">  <img  Width="200px" height="175px" src={this.props.itemContent.imageURL} alt="castle.jpg"></img> </button>
+                <button onClick={this.toggleModal} className="btn btn-lite">  <img  width="200px" height="175px" src={this.props.itemContent.imageURL} alt="castle.jpg"></img> </button>
                 <div className="card-footer small text-muted">
                     <div className="float-left">
                         <h6>{this.props.itemContent.name}</h6>

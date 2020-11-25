@@ -8,6 +8,7 @@ module.exports = (sequelize, DataTypes) => {
     Users.init({
         userName: {
             type: DataTypes.STRING,
+            unique: true,
             validate: {
               len: [3, 100],
               notEmpty: true,
@@ -15,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
           },
         userEmail: {
             type: DataTypes.STRING,
+            unique: true,
             validate: {
               len: [3, 100],
               notEmpty: true,
@@ -32,9 +34,9 @@ module.exports = (sequelize, DataTypes) => {
               },
             },
           },
-         /* imageURL:{
+          imageURL:{
             type:DataTypes.STRING,
-          },*/
+          },
         }, {
           sequelize,
           modelName: 'Users'

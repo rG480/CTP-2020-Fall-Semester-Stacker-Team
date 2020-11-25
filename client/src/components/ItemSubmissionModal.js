@@ -35,7 +35,6 @@ class AddItemModal extends React.Component{
     }
     addItem(){
       let jsonToSend= {
-       // id:this.props.values.id,
         name:this.state.name,
         quantity:this.state.quantity,
         dateAdded: this.state.dateAdded,
@@ -48,13 +47,6 @@ class AddItemModal extends React.Component{
       console.log(this.state.image[0])
       formData.append("image", this.state.image[0]);
       formData.append("json",JSON.stringify(jsonToSend));
-     /* formData.append("name",jsonToSend.name);
-      formData.append("quantity",jsonToSend.quantity);
-      formData.append("dateAdded",jsonToSend.dateAdded);
-      formData.append("purchasePrice",jsonToSend.purchasePrice);
-      formData.append("currentPrice",jsonToSend.currentPrice);
-      formData.append("description",jsonToSend.description);
-      formData.append("pub",jsonToSend.pub);*/
       fetch("/api/inv/", {
         method: 'POST',
         credentials: 'include',
