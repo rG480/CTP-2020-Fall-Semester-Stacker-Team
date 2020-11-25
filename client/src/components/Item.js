@@ -1,4 +1,5 @@
 import React from 'react';
+
 import ItemExpanded from './ItemExpanded';
 
 
@@ -20,15 +21,19 @@ class Item extends React.Component {
     
     render () {
       //  console.log(this.props.itemContent.dateAdded)
-     
+        let currName;
+        if (this.props.itemContent.name.length > 12) {
+            currName = this.props.itemContent.name.substring(0, 11) + '...';
+        } else {
+            currName =this.props.itemContent.name;
+        }
         return (
-      
             <div className="" style={{maxWidth: "250px",  padding: "10px"}}>
             <div className="shadow" >
                 <button onClick={this.toggleModal} className="btn btn-lite">  <img  width="200px" height="175px" src={this.props.itemContent.imageURL} alt="castle.jpg"></img> </button>
                 <div className="card-footer small text-muted">
                     <div className="float-left">
-                        <h6>{this.props.itemContent.name}</h6>
+                        <h6> { currName }</h6>
                     </div>
                     <div className="float-right">
                         <p>${this.props.itemContent.currentPrice }</p>
@@ -38,8 +43,7 @@ class Item extends React.Component {
                 </div>  
             </div>
             </div>
-          
-            
+
         );
     }
 }
