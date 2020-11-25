@@ -9,18 +9,22 @@ class ItemList extends React.Component {
     render() {
         let List = []
         for (let i = 0; i < this.props.items.length; i++) {
-            List.push(
+            if (this.props.category === this.props.items[i].category) {
+                List.push(
                 <Item reloadContent={this.props.reloadContent} itemContent={this.props.items[i]} user={this.props.user} refreshPage={this.props.refreshPage}/>
             );
+            }
+            
         }
         
         return (
             <div>
-                <div>
-                    <p>Video Games</p>
-                </div>
-                <div class="container-fluid ">
-                    <div class="row flex-nowrap overflow-auto">
+                <div className="container-fluid ">
+                    <div className="text-left">
+                        <h5>{this.props.category}</h5>
+                    </div>
+                    
+                    <div className="row flex-nowrap overflow-auto">
                         { List }
                     </div>
                 </div>

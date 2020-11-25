@@ -10,6 +10,7 @@ class AddItemModal extends React.Component{
       if(this.props.edit===false){
          this.state={
           name:"",
+          category:"",
           quantity:1,
           dateAdded: new Date(),
           image:'',
@@ -23,6 +24,7 @@ class AddItemModal extends React.Component{
       else if (this.props.edit===true) {
         this.state={
           name:props.values.name,
+          category:props.values.category,
           quantity:props.values.quantity,
           dateAdded: new Date(props.values.dateAdded),
           pPrice:props.values.purchasePrice,
@@ -36,6 +38,7 @@ class AddItemModal extends React.Component{
     addItem(){
       let jsonToSend= {
         name:this.state.name,
+        category:this.state.category,
         quantity:this.state.quantity,
         dateAdded: this.state.dateAdded,
         purchasePrice: this.state.pPrice,
@@ -79,6 +82,7 @@ class AddItemModal extends React.Component{
       let jsonToSend= {
         id:this.props.values.id,
         name:this.state.name,
+        category:this.state.category,
         quantity:this.state.quantity,
         dateAdded: this.state.dateAdded,
         purchasePrice: this.state.pPrice,
@@ -126,6 +130,16 @@ class AddItemModal extends React.Component{
           <br/>
           <input type="file" name="files" onChange={e=>{this.setState({image:e.target.files})}} ></input>
           <br/>
+          Category:
+          <br/>
+          <select type="text" value={this.state.category} onChange={e=>this.setState({category:e.target.value})} >
+            <option value="">Choose one..</option>
+            <option value="Video Games">Video Games</option>
+            <option value="Television">Television</option>
+            <option value="Music">Music</option>
+            <option value="Other">Other</option>
+          </select>
+          <br/>
           Item Name:
           <br/>
           <input type="text" value={this.state.name} onChange={e=>this.setState({name:e.target.value})} />
@@ -138,7 +152,7 @@ class AddItemModal extends React.Component{
           <br/>
           <DatePicker selected={this.state.dateAdded} onSelect={date=>this.setState({dateAdded:date})} ></DatePicker>
           <br/>
-         Purchase Price:
+          Purchase Price:
           <br/>
           <input type="text" onChange={e=>this.setState({pPrice:parseFloat(e.target.value)})}/>
           <br/>

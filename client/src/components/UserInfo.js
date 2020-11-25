@@ -18,10 +18,11 @@ class UserInfo extends React.Component {
     })
   }
 
-  handleSubmission(name,quant,initPrice,currPrice,date,desc,pub){
+  handleSubmission(name,category,quant,initPrice,currPrice,date,desc,pub){
     
     let jsonToSend= {
       name:name,
+      category:category,
       quantity:quant,
       dateAdded: date,
       purchasePrice: initPrice,

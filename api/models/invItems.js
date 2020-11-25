@@ -13,6 +13,10 @@ module.exports = (sequelize, DataTypes) => {
           notEmpty: true,
         }
       },
+      category: {
+        type: DataTypes.STRING,
+
+      },
       quantity:{
         type: DataTypes.INTEGER,
         validate: {
