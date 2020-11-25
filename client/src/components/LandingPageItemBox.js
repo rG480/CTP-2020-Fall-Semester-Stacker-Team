@@ -11,7 +11,7 @@ class LandingPageItemBox extends React.Component {
         for (let i = 0; i < 8; i++) {
             if (this.props.list[i] != null) {
             box.push(
-                <Item itemContent={this.props.list[i]}/>
+                <Item  itemContent={this.props.list[i]}/>
             );
             }
         }
@@ -21,7 +21,7 @@ class LandingPageItemBox extends React.Component {
                     <div className="col">
                         
                     </div>
-                    <div className="col-10 row wrap">
+                    <div className="col-12 row wrap justify-content-center">
                         { box }
                     </div>
                     <div className="col">
