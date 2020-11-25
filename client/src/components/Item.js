@@ -20,17 +20,18 @@ class Item extends React.Component {
     
     render () {
       //  console.log(this.props.itemContent.dateAdded)
+     
         return (
       
             <div className="" style={{minWidth: "225px", padding: "10px"}}>
             <div className="shadow" >
                 <div className="card-body card-text">
                     <h5> {this.props.itemContent.name} </h5> 
-                    <button onClick={this.toggleModal} className="btn btn-lite">  <img alt="castle.jpg"></img> </button>
+                    <button onClick={this.toggleModal} className="btn btn-lite">  <img  width="200" height="150"src={this.props.itemContent.imageURL} alt="castle.jpg"></img> </button>
                 </div>
                 <div className="card-footer small text-muted text-right">
                     <p> {this.props.itemContent.currentPrice }</p>
-                    <ItemExpanded list={this.props.itemContent} show={this.state.showModal} hide= {this.toggleModal} user={this.props.user}  refreshPage={this.props.refreshPage}></ItemExpanded>
+                    <ItemExpanded reloadContent={this.props.reloadContent} list={this.props.itemContent} show={this.state.showModal} hide= {this.toggleModal} user={this.props.user}  refreshPage={this.props.refreshPage}></ItemExpanded>
                 </div>  
             </div>
             </div>

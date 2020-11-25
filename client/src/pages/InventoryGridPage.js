@@ -15,6 +15,7 @@ class InventoryGridPage extends React.Component {
   }
   
  refreshPage(){
+   console.log("reload")
    this.componentDidMount()
   
  }
@@ -58,7 +59,7 @@ class InventoryGridPage extends React.Component {
         </div>
         <div style={{maxWidth: "1000px"}}>
   
-            <ItemListBox list={this.state.itemsList} user={this.state.userList} refreshPage ={this.refreshPage}/>
+            <ItemListBox reloadContent={this.refreshPage} list={this.state.itemsList} user={this.state.userList} refreshPage ={this.refreshPage}/>
          {/*    <ItemExpanded list={this.state.itemsList[0]}/> */}
         </div>
     </div>

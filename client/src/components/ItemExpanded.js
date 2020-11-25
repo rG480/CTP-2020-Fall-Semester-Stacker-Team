@@ -79,7 +79,7 @@ class ItemExpanded extends React.Component {
             </ul>
             <div className="d-flex justify-content-end" style={{paddingTop: "15px"}}>
                 { addedButtons }
-                <AddItemModal show={this.state.showModal} hide= {this.toggleModal}></AddItemModal>
+                <AddItemModal reloadContent={this.props.reloadContent} edit={true} values={this.props.list} show={this.state.showModal} hide= {this.toggleModal}></AddItemModal>
             </div>
             </Modal.Body>
             </Modal>

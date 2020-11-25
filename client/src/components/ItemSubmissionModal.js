@@ -6,22 +6,122 @@ import "react-datepicker/dist/react-datepicker.css";
 class AddItemModal extends React.Component{
     constructor(props){
          super(props)
+        
+      if(this.props.edit===false){
          this.state={
           name:"",
           quantity:1,
           dateAdded: new Date(),
-          pPrice:0.00,
-          cPrice:0.00,
+          image:'',
+          pPrice:'',
+          cPrice:'',
           desc:"",
           pub: false
         }
- 
+       
+      }
+      else if (this.props.edit===true) {
+        this.state={
+          name:props.values.name,
+          quantity:props.values.quantity,
+          dateAdded: new Date(props.values.dateAdded),
+          pPrice:props.values.purchasePrice,
+          cPrice:props.values.currentPrice,
+          desc:props.values.description,
+          pub: props.values.public
+        }
+      
+      } 
     }
+    addItem(){
+      let jsonToSend= {
+       // id:this.props.values.id,
+        name:this.state.name,
+        quantity:this.state.quantity,
+        dateAdded: this.state.dateAdded,
+        purchasePrice: this.state.pPrice,
+        currentPrice: this.state.cPrice,
+        description: this.state.desc,
+        pub: this.state.pub
+      } 
+      const formData = new FormData();
+      console.log(this.state.image[0])
+      formData.append("image", this.state.image[0]);
+      formData.append("json",JSON.stringify(jsonToSend));
+     /* formData.append("name",jsonToSend.name);
+      formData.append("quantity",jsonToSend.quantity);
+      formData.append("dateAdded",jsonToSend.dateAdded);
+      formData.append("purchasePrice",jsonToSend.purchasePrice);
+      formData.append("currentPrice",jsonToSend.currentPrice);
+      formData.append("description",jsonToSend.description);
+      formData.append("pub",jsonToSend.pub);*/
+      fetch("/api/inv/", {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+      
+        },
+        body: formData,
+      })
+        .then(res => {
+          if(res.ok) {
+            return res.json()
+          }
     
-    // alertText(){
-    //   alert(this.state.quantity)
-    // }
+          throw new Error('Content validation');
+        })
+        .then(post => {
+          alert("Success!")
+          this.props.reloadContent();
+         
+         
+        })
+        .catch(err => {
+          alert("error :3")
+        });
+        
+    }
+   
+
+    editItem(){
+      let jsonToSend= {
+        id:this.props.values.id,
+        name:this.state.name,
+        quantity:this.state.quantity,
+        dateAdded: this.state.dateAdded,
+        purchasePrice: this.state.pPrice,
+        currentPrice: this.state.cPrice,
+        description: this.state.desc,
+        pub: this.state.pub
+      } 
+      fetch("/api/inv/:edit",{
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(jsonToSend),
+      }).then(post => {
+        alert("Success!")
+        this.props.reloadContent();
+       
+      })
+      .catch(err => {
+        alert("error :3")
+      });
+
+      
+    }
     render(){
+      let button; 
+     
+      if(this.props.edit===false){
+        button= ( <Button variant="primary" onClick={e=>this.addItem()} >Add Item</Button>)
+      }
+      else if (this.props.edit===true){
+        button =(<Button variant="primary" onClick={e=>this.editItem()} >Save changes</Button>)
+      }
+
     return(<Modal show={this.props.show} onHide={this.props.hide}>
       <Modal.Header closeButton>
         <Modal.Title>Modal title</Modal.Title>
@@ -30,13 +130,17 @@ class AddItemModal extends React.Component{
       <Modal.Body>
         <p>Modal body text goes here.</p>
         <form>
+          Image:
+          <br/>
+          <input type="file" name="files" onChange={e=>{this.setState({image:e.target.files})}} ></input>
+          <br/>
           Item Name:
           <br/>
-          <input type="text" onChange={e=>this.setState({name:e.target.value})} />
+          <input type="text" value={this.state.name} onChange={e=>this.setState({name:e.target.value})} />
           <br/>
           Quantity:
           <br/>
-          <input type="number" onChange={e=>this.setState({quantity:e.target.value})}/>
+          <input type="number" value={this.state.quantity} onChange={e=>this.setState({quantity:e.target.value})}/>
           <br/>
           Date Obtained:
           <br/>
@@ -48,20 +152,19 @@ class AddItemModal extends React.Component{
           <br/>
           Current Price:
           <br/>
-          <input type="text" onChange={e=>this.setState({cPrice:parseFloat(e.target.value)})}/>
+          <input type="text"  onChange={e=>this.setState({cPrice:parseFloat(e.target.value)})}/>
           <br/>
           Description:
           <br/>
-          <textarea onChange={e=>this.setState({desc:e.target.value})}/>
+          <textarea value={this.state.desc} onChange={e=>this.setState({desc:e.target.value})}/>
           <br/>
-          Show publically? <input type="checkbox" onChange={e=>this.setState({pub: this.state.pub? false : true })}></input>
+          Show publically? <input type="checkbox" checked={this.state.pub} onChange={e=>this.setState({pub: this.state.pub? false : true })}></input>
         </form>
       </Modal.Body>
     
       <Modal.Footer>
         <Button variant="secondary" onClick={e=>this.props.hide()}>Close</Button>
-        <Button variant="primary" onClick={e=>this.props.submission(this.state.name,this.state.quantity,
-         this.state.pPrice,this.state.cPrice,this.state.dateAdded,this.state.desc,this.state.pub )} >Save changes</Button>
+        {button}
       </Modal.Footer>
     </Modal>
     );}
