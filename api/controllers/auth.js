@@ -1,8 +1,11 @@
 const router = require('express').Router();
 const { Users } = require('../models');
 const passport = require('../middlewares/authentication');
+const multer= require('multer');
+const upload = multer();
+const img= require('./imgPractice').upload;
 
-router.post('/signup', (req, res) => {
+router.post('/signup',/*upload.any(),*/ (req, res) => {
   console.log("POST body: ", req.body);
   Users.create({
     userName:req.body.username,
