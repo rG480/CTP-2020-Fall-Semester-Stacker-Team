@@ -8,6 +8,7 @@ class ItemListBox extends React.Component {
         super(props)
         this.state={
             tableToggle:false,
+            uniqueCategories:"",
           }
         this.toggle=this.toggleTable.bind(this)
     }
@@ -17,12 +18,27 @@ class ItemListBox extends React.Component {
         })
         console.log(this.state.tableToggle)
     }
+
+   
     render () {
+        let uniqueCategories = [];
+        for(let i = 0; i < this.props.list.length; i++) {
+            if (!uniqueCategories.includes(this.props.list[i].category)) {
+                uniqueCategories.push(this.props.list[i].category)
+            }
+        }
+        let itemListBox = [];
+        for(let i = 0; i < uniqueCategories.length; i++) {
+            itemListBox.push(
+                <ItemList reloadContent={this.props.reloadContent} items={this.props.list} user={this.props.user} refreshPage={this.props.refreshPage} category={uniqueCategories[i]}/>
+            )
+        }
         
         return (
             <div>
                 <div>
-                <ItemList reloadContent={this.props.reloadContent} items={this.props.list} user={this.props.user} refreshPage={this.props.refreshPage} />
+                {itemListBox}
+                {/* <ItemList reloadContent={this.props.reloadContent} items={this.props.list} user={this.props.user} refreshPage={this.props.refreshPage} /> */}
                 <TableViewModal items={this.props.list}show={this.state.tableToggle} hide={this.toggle}></TableViewModal>
                 <Button onClick={this.toggle}>Table View</Button>
                 </div>

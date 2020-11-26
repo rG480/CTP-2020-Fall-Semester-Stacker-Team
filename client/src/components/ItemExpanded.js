@@ -57,25 +57,28 @@ class ItemExpanded extends React.Component {
         let profit = currPrice - purPrice;
         let currentMoneyStanding;
         if (profit > 0) {
-            currentMoneyStanding = 'You are up ';
+            currentMoneyStanding = 'Currenty up +'
         } else if (profit === 0){
             currentMoneyStanding = 'You are dead even.';
         } else {
-            currentMoneyStanding = 'Sorry you are down ';
+            currentMoneyStanding = 'Currently down ';
         }
-        profit = Math.abs(profit);
+        profit = profit.toFixed(2);
+
+        let date = this.props.list.dateAdded;
+        date = date.substring(0,10);
         return (
-            <Modal show={this.props.show} onHide={this.props.hide}>
+            <Modal size='sm' show={this.props.show} onHide={this.props.hide}>
             <Modal.Header closeButton>
                 <Modal.Title>{ this.props.list.name }</Modal.Title>
             </Modal.Header>
             <Modal.Body>
             <ul className="list-group list-group-flush">
-                       <li className="list-group-item text-left">Date Added: { this.props.list.dateAdded }</li>
+                       <li className="list-group-item text-left">Date Added: { date }</li>
                        <li className="list-group-item text-left">Purchase Price: { this.props.list.purchasePrice }</li>
-                       <li className="list-group-item text-left">Current Prive: { this.props.list.currentPrice }</li>
+                       <li className="list-group-item text-left">Current Price: { this.props.list.currentPrice }</li>
                        <li className="list-group-item text-left"> { currentMoneyStanding + profit } </li>
-                       <li className="list-group-item text-left">Description: { this.props.list.description }</li>    
+                       <li className="list-group-item text-left word-break" style={{wordWrap:"break-word"}} >Description: { this.props.list.description }</li>    
             </ul>
             <div className="d-flex justify-content-end" style={{paddingTop: "15px"}}>
                 { addedButtons }

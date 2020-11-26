@@ -32,6 +32,7 @@ router.post('/',upload.any(),passport.isAuthenticated(), (req, res) => {
     img("/itemImages",itemImage).then(info=>{
       console.log(info);
       Inventory.create({name: content.name,
+        category: content.category,
         quantity: content.quantity,
         dateAdded: content.dateAdded,
        purchasePrice: content.purchasePrice,
@@ -54,7 +55,8 @@ router.post('/',upload.any(),passport.isAuthenticated(), (req, res) => {
    
     let  content  = req.body;
     
-    Inventory.update({ name:content.name, 
+    Inventory.update({ name:content.name,
+      category: content.category, 
       quantity:content.quantity,
       dateAdded:content.dateAdded,
       purchasePrice:content.purchasePrice,
