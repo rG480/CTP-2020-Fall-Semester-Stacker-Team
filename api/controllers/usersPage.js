@@ -8,11 +8,11 @@ const op = sq.Op;
 router.get('/',(req,res) => {
     if(req["user"]){
         Users.findAll({where: {id:{[op.not]:req["user"].id}}})
-        .then(user => res.json(user));
+        .then(user => res.status(200).json(user));
     }
     else{
         Users.findAll({})
-        .then(user => res.json(user));
+        .then(user => res.status(200).json(user));
     }
 });
 

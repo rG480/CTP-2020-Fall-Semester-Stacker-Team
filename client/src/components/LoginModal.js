@@ -20,12 +20,14 @@ class LoginModal extends React.Component{
         auth.authenticate(email, password)
           .then((user) => {
             this.setState({ redirectToReferrer: true });
-            this.props.setAuth(true);
-            this.props.hide();
+            window.location.reload(false);
+           // this.props.setAuth(true);
+           // this.props.hide();
+            
           
           })
           .catch((err) => {
-            this.setState({ failed: true });
+           // this.setState({ failed: true });
           });
         
       }
@@ -34,14 +36,16 @@ class LoginModal extends React.Component{
         console.log(this.state.image[0]);
         auth.signin(this.state.image[0],username, email, password)
         .then((user) => {
-          this.props.setAuth(true);
-          this.props.hide();
-          
+          window.location.reload(false);
+          //this.props.reloadContent();
+        //  this.props.setAuth(true);
+         // this.props.hide();
+         
         })
         .catch((err) => {
-          this.setState({ failed: true });
+         // this.setState({ failed: true });
         });
-     //   window.location.reload(false);
+     
       }
     render(){
         let renderThis

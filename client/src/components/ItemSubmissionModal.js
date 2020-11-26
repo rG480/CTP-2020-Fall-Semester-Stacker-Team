@@ -69,6 +69,7 @@ class AddItemModal extends React.Component{
          
         })
         .catch(err => {
+          console.log(err)
           alert("error :3")
         });
         

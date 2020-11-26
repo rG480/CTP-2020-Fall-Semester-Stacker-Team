@@ -55,7 +55,7 @@ class InventoryGridPage extends React.Component {
         renderedContent=  (  
         <div className="row flex-nowrap justify-content-md-center">
         <div className="justify-left">
-            <UserInfo refreshPage ={this.refreshPage} list={ this.state.userList[0] }/>
+            <UserInfo reloadContent ={this.refreshPage} list={ this.state.userList[0] }/>
         </div>
         <div style={{maxWidth: "1000px"}}>
   

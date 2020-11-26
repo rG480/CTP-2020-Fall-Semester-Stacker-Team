@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Children } from 'react';
 import { 
   BrowserRouter as Router, 
   Switch, 
@@ -16,7 +16,9 @@ import PrivateRoute from './components/PrivateRoute';
 import auth from './services/auth'
 import AllUsersDisplayPage from './pages/AllUsersDisplayPage';
 import PublicGalleryPage from './pages/PublicGalleryPage'
-import{ Redirect } from 'react-router-dom';
+
+
+
  class Navigation extends React.Component {
   constructor(props){
     super(props)
@@ -26,6 +28,7 @@ import{ Redirect } from 'react-router-dom';
     }
     this.toggler = this.toggleModal.bind(this)
     this.setAuthen= this.setAuth.bind(this)
+    this.reloadContent= this.reloadContent(this)
   }
   toggleModal(){
    
@@ -35,16 +38,18 @@ import{ Redirect } from 'react-router-dom';
   }
 signout(){
   auth.signout();
-  this.setAuth(false);
+  window.location.reload(false);
+  //this.setAuth(false);
   
 }
 setAuth(login){
-  console.log(login)
+  console.log("setAuth")
   if(login===true){
   this.setState({
     auth:true
   })
   auth.isAuthenticated=true;
+ 
   console.log(this.state.auth)
   }
   else if (login===false){
@@ -52,15 +57,18 @@ setAuth(login){
       auth:false
     })
     auth.isAuthenticated=false;
-    //window.location.reload(false);
+    
   }
   
+}
+reloadContent(){
+ 
+  this.componentDidMount();
 }
 componentDidMount(){
   console.log(auth.isAuthenticated)
   if (!this.state.auth){
     fetch('/api/amILoggedIn/').then((response) => {
-      console.log(true);
       this.setAuth(true);
       }
     )
@@ -83,7 +91,7 @@ render(){
   }
   
   return (<div>
-      <LoginModal setAuth={this.setAuthen} show={this.state.showModal} hide={this.toggler}></LoginModal>
+      <LoginModal reloadContent={this.reloadContent} setAuth={this.setAuthen} show={this.state.showModal} hide={this.toggler}></LoginModal>
     <nav className="navbar navbar-expand-sm navbar-dark bg-dark shadow mb-3">
       <Link className="navbar-brand btn btn-dark" exact to="/landing">Home</Link>
       {/* Might change this to the site's name later.*/}
@@ -124,6 +132,7 @@ class App extends React.Component {
           <div className="container-fluid text-center">
             <div className="row justify-content-center">
               <Switch>
+            
                 <Route path="/landing" component={LandingPage} />
                 <Route path="/yourCollection" component={InventoryPage}/>
                 <Route path="/aboutUs" component={AboutUsPage} />
