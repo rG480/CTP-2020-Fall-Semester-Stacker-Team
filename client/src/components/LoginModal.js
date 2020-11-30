@@ -20,9 +20,9 @@ class LoginModal extends React.Component{
         auth.authenticate(email, password)
           .then((user) => {
             this.setState({ redirectToReferrer: true });
-            window.location.reload(false);
-           // this.props.setAuth(true);
-           // this.props.hide();
+           
+           this.props.setAuth(true);
+           this.props.hide();
             
           
           })
@@ -36,14 +36,13 @@ class LoginModal extends React.Component{
         console.log(this.state.image[0]);
         auth.signin(this.state.image[0],username, email, password)
         .then((user) => {
-          window.location.reload(false);
-          //this.props.reloadContent();
-        //  this.props.setAuth(true);
-         // this.props.hide();
+         
+         this.props.setAuth(true);
+         this.props.hide();
          
         })
         .catch((err) => {
-         // this.setState({ failed: true });
+               alert(err)
         });
      
       }
@@ -61,7 +60,7 @@ class LoginModal extends React.Component{
              
               Password:
               <br/>
-              <input type="text" onChange={e=>this.setState({password:e.target.value})}/>
+              <input type="password" onChange={e=>this.setState({password:e.target.value})}/>
               <br/>
              
             </form>
@@ -92,7 +91,7 @@ class LoginModal extends React.Component{
              
               Password:
               <br/>
-              <input type="text" onChange={e=>this.setState({password:e.target.value})}/>
+              <input type="password" onChange={e=>this.setState({password:e.target.value})}/>
               <br/>
               Profile Image:
               <br/>

@@ -10,6 +10,7 @@ class LandingPage extends React.Component {
       itemsList:'',
       test: 'recentAdded',
       buttonPressed: '',
+      login:'',
     }
     this.topPrice = this.topPrice.bind(this);
     this.recentAdded = this.recentAdded.bind(this);
@@ -20,7 +21,7 @@ class LandingPage extends React.Component {
     fetch('/api/topPrice/')
     .then(res => res.json())
     .then(post => {
-    //  alert(post.length)
+  
       this.setState({itemsList:post, buttonPressed: 'topPrice'}) 
   })
   }
@@ -31,20 +32,34 @@ class LandingPage extends React.Component {
     fetch('/api/recentAdded/')
     .then(res => res.json())
     .then(post => {
-    // alert(post.length)
-      this.setState({itemsList:post, buttonPressed: 'recentAdded'}) 
+    this.setState({itemsList:post, buttonPressed: 'recentAdded'}) 
     })
   }
  }
 
  componentDidMount() {
+ 
+  this.setState({
+    login:this.props.login,
+    itemsList:''
+  })
   this.recentAdded();
+   
+}
+componentDidUpdate(prevProps) {
+ 
+  if(prevProps.login !== this.props.login) {
+    alert("yes")
+   this.componentDidMount();
+  }
 }
 
-
   render () {
+   
       return (
+      
           <div style={{padding: "25px"}}>
+        
             <LandingPageBox list={ this.state.itemsList } />
             <div style={{padding: "0px"}}>
               <button onClick={(e) => this.topPrice()} className="btn btn-primary" style={{margin: "5px"}}>Top Price</button>

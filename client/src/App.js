@@ -38,8 +38,7 @@ import PublicGalleryPage from './pages/PublicGalleryPage'
   }
 signout(){
   auth.signout();
-  window.location.reload(false);
-  //this.setAuth(false);
+  this.setAuth(false);
   
 }
 setAuth(login){
@@ -49,15 +48,16 @@ setAuth(login){
     auth:true
   })
   auth.isAuthenticated=true;
- 
+  this.props.auth(true)
   console.log(this.state.auth)
   }
   else if (login===false){
+    alert("setAuth false")
     this.setState({
       auth:false
     })
     auth.isAuthenticated=false;
-    
+    this.props.auth(false)
   }
   
 }
@@ -122,22 +122,43 @@ render(){
 
 
 class App extends React.Component {
+  constructor(props){
+    super(props);
+    this.state={
+      login:"",
+    }
+    this.comp= this.setLogin.bind(this)
+  }
+  setLogin(tf){
+    if (tf===true){
+   
+      this.setState({
+        login:true,
+      })
 
+    }
+    else if(tf===false){
+     
+      this.setState({
+        login:false,
+      })
+     
+    }
+  }
   render() {
     return (
       <div>
        
         <Router>
-          <Navigation />
+          <Navigation auth={this.comp}/>
           <div className="container-fluid text-center">
             <div className="row justify-content-center">
               <Switch>
-            
-                <Route path="/landing" component={LandingPage} />
+                <Route path="/landing" render={props => ( <LandingPage {...props} key={this.state.login} login={this.state.login} /> )}/>
                 <Route path="/yourCollection" component={InventoryPage}/>
                 <Route path="/aboutUs" component={AboutUsPage} />
                 <PrivateRoute path="/inventoryGridPage" component={InventoryGridPage}/>
-                <Route path="/displayUsers" component={AllUsersDisplayPage}/>
+                <Route path="/displayUsers" render={props => ( <AllUsersDisplayPage {...props} login={this.state.login} /> )}/>
                 <Route path="/userGallery/" component={PublicGalleryPage}/>
               </Switch>
             </div>
