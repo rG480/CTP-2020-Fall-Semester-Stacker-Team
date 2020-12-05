@@ -16,7 +16,7 @@ import PrivateRoute from './components/PrivateRoute';
 import auth from './services/auth'
 import AllUsersDisplayPage from './pages/AllUsersDisplayPage';
 import PublicGalleryPage from './pages/PublicGalleryPage'
-
+document.body.style = 'background-color: aliceblue';
 
 
  class Navigation extends React.Component {
@@ -77,32 +77,33 @@ render(){
   let button;
   let inv;
   if(this.state.auth){
-     button = <button className="btn btn-dark" onClick={ e=>this.signout(e)}>Logout</button>
+     button = <button className="btn nav"  onClick={ e=>this.signout(e)}>Logout</button>
      inv =( <li className="nav-item">
-     <NavLink className="nav-link btn btn-dark" exact to="/inventoryGridPage">
+     <NavLink className="nav-link btn nav"  exact to="/inventoryGridPage">
        Your Inventory
      </NavLink>
      </li>)
    }
   else{
-    button=   <button className="btn btn-dark" onClick={this.toggler}>Login</button>;
+    button=   <button className="btn nav" onClick={this.toggler}>Login</button>;
     inv=(<span></span>);
   }
   
   return (<div >
       <LoginModal reloadContent={this.reloadContent} setAuth={this.setAuthen} show={this.state.showModal} hide={this.toggler}></LoginModal>
-    <nav  className="navbar navbar-expand-sm navbar-dark bg-dark shadow mb-3">
-      <Link className="navbar-brand btn btn-dark" exact to="/landing">Home</Link>
+    <nav className="navbar navbar-expand-sm bg shadow mb-3" style={{background: "#B39BC8"}}>
+     
+      <Link className="navbar-brand btn nav"  exact to="/landing">Home </Link>
       {/* Might change this to the site's name later.*/}
       <ul className="navbar-nav mr-auto">
         {inv}
         <li className="nav-item">
-          <NavLink className="nav-link btn btn-dark" exact to="/displayUsers">
+          <NavLink className="nav-link btn nav"  exact to="/displayUsers">
            Users
           </NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link btn btn-dark" exact to="/aboutUs">
+          <NavLink className="nav-link btn nav" exact to="/aboutUs">
             About Us
           </NavLink>
         </li>

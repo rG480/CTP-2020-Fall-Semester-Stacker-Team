@@ -113,10 +113,10 @@ class AddItemModal extends React.Component{
       let button; 
      
       if(this.props.edit===false){
-        button= ( <Button variant="primary" onClick={e=>this.addItem()} >Add Item</Button>)
+        button= ( <Button variant="info" onClick={e=>this.addItem()} >Add Item</Button>)
       }
       else if (this.props.edit===true){
-        button =(<Button variant="primary" onClick={e=>this.editItem()} >Save changes</Button>)
+        button =(<Button variant="info" onClick={e=>this.editItem()} >Save changes</Button>)
       }
 
     return(<Modal size="sm"show={this.props.show} onHide={this.props.hide}>

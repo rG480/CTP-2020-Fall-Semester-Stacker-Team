@@ -40,7 +40,7 @@ class ItemListBox extends React.Component {
                 {itemListBox}
                 {/* <ItemList reloadContent={this.props.reloadContent} items={this.props.list} user={this.props.user} refreshPage={this.props.refreshPage} /> */}
                 <TableViewModal items={this.props.list}show={this.state.tableToggle} hide={this.toggle}></TableViewModal>
-                <Button onClick={this.toggle}>Table View</Button>
+                <Button onClick={this.toggle} className="btn-secondary">Table View</Button>
                 </div>
             </div>
         )
