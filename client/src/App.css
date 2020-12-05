@@ -42,6 +42,11 @@ th, td{
   background-color: rgb(188, 188, 248);
 }
 
+.nav:focus, .item:focus {
+  outline: none;
+  box-shadow: none
+}
+
 .modal-header {
   background-color:#B39BC8;
 }
