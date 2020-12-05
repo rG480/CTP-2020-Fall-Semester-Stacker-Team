@@ -121,11 +121,7 @@ class LoginModal extends React.Component{
       }
     return( 
       <Modal show={this.props.show} onHide={this.props.hide}>
-          <Modal.Header closeButton>
-            <Modal.Title>Modal title</Modal.Title>
-            <Button className="btn-secondary" onClick={e=>{this.setState({activeTab:0})}}>login</Button>
-            <Button className="btn-secondary" onClick={e=>{this.setState({activeTab:1})}}>sign up</Button>
-          </Modal.Header>
+         
           {renderThis}
       </Modal>
       
