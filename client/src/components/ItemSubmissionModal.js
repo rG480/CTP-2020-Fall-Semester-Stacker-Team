@@ -68,12 +68,11 @@ class AddItemModal extends React.Component{
         .then(post => {
           alert("Success!")
           this.props.reloadContent();
-         
+          this.props.hide()
          
         })
         .catch(err => {
           console.log(err)
-          alert("error :3")
         });
         
     }
@@ -101,10 +100,11 @@ class AddItemModal extends React.Component{
       }).then(post => {
         alert("Success!")
         this.props.reloadContent();
+        this.props.hide();
        
       })
       .catch(err => {
-        alert("error :3")
+        console.log(err)
       });
 
       

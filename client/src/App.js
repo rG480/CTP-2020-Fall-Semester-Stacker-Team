@@ -52,7 +52,6 @@ setAuth(login){
   console.log(this.state.auth)
   }
   else if (login===false){
-    alert("setAuth false")
     this.setState({
       auth:false
     })
@@ -90,9 +89,9 @@ render(){
     inv=(<span></span>);
   }
   
-  return (<div>
+  return (<div >
       <LoginModal reloadContent={this.reloadContent} setAuth={this.setAuthen} show={this.state.showModal} hide={this.toggler}></LoginModal>
-    <nav className="navbar navbar-expand-sm navbar-dark bg-dark shadow mb-3">
+    <nav  className="navbar navbar-expand-sm navbar-dark bg-dark shadow mb-3">
       <Link className="navbar-brand btn btn-dark" exact to="/landing">Home</Link>
       {/* Might change this to the site's name later.*/}
       <ul className="navbar-nav mr-auto">
@@ -150,7 +149,7 @@ class App extends React.Component {
       <div>
        
         <Router>
-          <Navigation auth={this.comp}/>
+          <Navigation  auth={this.comp}/>
           <div className="container-fluid text-center">
             <div className="row justify-content-center">
               <Switch>

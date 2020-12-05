@@ -15,7 +15,7 @@ class LandingPage extends React.Component {
     this.topPrice = this.topPrice.bind(this);
     this.recentAdded = this.recentAdded.bind(this);
   }
-  
+
  topPrice () {
    if (this.state.buttonPressed !== 'topPrice') {
     fetch('/api/topPrice/')

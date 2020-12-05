@@ -1,5 +1,7 @@
 import React from 'react';
 import Modal from 'react-bootstrap/Modal'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import auth from '../services/auth'
 class LoginModal extends React.Component{
@@ -50,8 +52,13 @@ class LoginModal extends React.Component{
         let renderThis
         if (this.state.activeTab===0){
           renderThis=(<div>
-          <Modal.Body>
+          <Modal.Header closeButton>
+            <Modal.Title>Login</Modal.Title>
+           
             
+          </Modal.Header>
+          <Modal.Body>
+          <div className="container">
             <form>
               Email Address:
               <br/>
@@ -62,8 +69,9 @@ class LoginModal extends React.Component{
               <br/>
               <input type="password" onChange={e=>this.setState({password:e.target.value})}/>
               <br/>
-             
+             <Row className= "align-items-center" ><Col><p>Don't have an account?</p></Col> <Col><Button  variant="link" onClick={e=>{this.setState({activeTab:1})}}>sign up</Button></Col> </Row>
             </form>
+            </div>
           </Modal.Body>
         
           <Modal.Footer>
@@ -77,16 +85,21 @@ class LoginModal extends React.Component{
        
         renderThis=(
         <div>
+           <Modal.Header closeButton>
+            <Modal.Title>Sign Up</Modal.Title>
+          
+          </Modal.Header>
+          
           <Modal.Body>
             <form>
               Username:
               <br/>
-              <input type="text" onChange={e=>this.setState({username:e.target.value})} />
+              <input type="text" value={this.state.username} onChange={e=>this.setState({username:e.target.value})} />
               <br/>
 
               Email Address:
               <br/>
-              <input type="text" onChange={e=>this.setState({email:e.target.value})} />
+              <input type="text" value={this.state.email} onChange={e=>this.setState({email:e.target.value})} />
               <br/>
              
               Password:
@@ -97,21 +110,18 @@ class LoginModal extends React.Component{
               <br/>
               <input type="file" name="files" onChange={e=>{this.setState({image:e.target.files})}} ></input>
               <br/>
+              <p>Back to </p>   <Button variant="link" onClick={e=>{this.setState({activeTab:0})}}>login</Button>
             </form>
          </Modal.Body>
          <Modal.Footer>
          <Button variant="secondary" onClick={e=>this.props.hide()}>Close</Button>
-         <Button variant="primary" onClick={e=>this.signup()} >Login</Button>
+         <Button variant="primary" onClick={e=>this.signup()} >Sign Up</Button>
        </Modal.Footer>
        </div>)
       }
     return( 
       <Modal show={this.props.show} onHide={this.props.hide}>
-          <Modal.Header closeButton>
-            <Modal.Title>Modal title</Modal.Title>
-            <Button onClick={e=>{this.setState({activeTab:0})}}>login</Button>
-            <Button onClick={e=>{this.setState({activeTab:1})}}>sign up</Button>
-          </Modal.Header>
+         
           {renderThis}
       </Modal>
       
