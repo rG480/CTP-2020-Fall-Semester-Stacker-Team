@@ -76,7 +76,7 @@ class LoginModal extends React.Component{
         
           <Modal.Footer>
             <Button variant="secondary" onClick={e=>this.props.hide()}>Close</Button>
-            <Button variant="secondary" onClick={e=>this.login()} >Login</Button>
+            <Button variant="info" onClick={e=>this.login()} >Login</Button>
           </Modal.Footer>
           </div>
         )
@@ -115,7 +115,7 @@ class LoginModal extends React.Component{
          </Modal.Body>
          <Modal.Footer>
          <Button variant="secondary" onClick={e=>this.props.hide()}>Close</Button>
-         <Button variant="secondary" onClick={e=>this.signup()} >Login</Button>
+         <Button variant="info" onClick={e=>this.signup()} >Login</Button>
        </Modal.Footer>
        </div>)
       }

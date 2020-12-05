@@ -49,6 +49,21 @@ th, td{
   padding: 5px;
 }
 
+h5 span {
+ /* // background-color: rgb(188, 188, 248); */
+  padding: 5px;
+  border: #c1b7ca;
+  border-style: solid;
+  color: #B39BC8;
+  border-radius: 5px;
+  border-width: 1px;
+  
+}
+
+.itemList {
+  padding-bottom: 20px;
+}
+
 .nav:hover {
   background-color: rgb(188, 188, 248);
 }
@@ -60,4 +75,17 @@ th, td{
 
 .modal-header {
   background-color:#B39BC8;
+}
+
+.user-card {
+
+    height: auto;
+    max-height: 250px;
+    width: auto;
+    max-width: 250px;
+    padding: 25px;
+    display:flex;
+    align-items:space-between;
+    justify-content:space-between;
+    flex-wrap:wrap;
 }

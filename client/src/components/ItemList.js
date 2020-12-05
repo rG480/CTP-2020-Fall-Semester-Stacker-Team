@@ -18,10 +18,10 @@ class ItemList extends React.Component {
         }
         
         return (
-            <div>
+            <div className="itemList">
                 <div className="container-fluid ">
                     <div className="text-left">
-                        <h5>{this.props.category}</h5>
+                        <h5><span>{ this.props.category }</span></h5>
                     </div>
                     
                     <div className="row flex-nowrap overflow-auto">
