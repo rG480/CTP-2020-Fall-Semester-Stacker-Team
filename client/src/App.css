@@ -89,3 +89,11 @@ h5 span {
     justify-content:space-between;
     flex-wrap:wrap;
 }
+
+.about-header{
+  font-size: 50px;
+}
+
+.about-sub-header{
+  font-size: 35px;
+}
