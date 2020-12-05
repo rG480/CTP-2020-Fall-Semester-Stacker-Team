@@ -58,14 +58,14 @@ componentDidUpdate(prevProps) {
    
       return (
       
-          <div style={{padding: "25px"}}>
-            <h1>Cellar Home</h1>
+          <div style={{padding: "5px"}}>
+            {/* <h1>Cellar Home</h1> */}
             <div className="boxHolder">
             <h4 style={{textAlign:"left"}}>Items Showcase</h4>
-            <div style={{border:"solid", borderRadius:"10px"}}>
+            <div className="showcase"style={{border:"solid", borderRadius:"10px",}}>
             <LandingPageBox list={ this.state.itemsList } />
             </div>
-            <div style={{padding: "0px"}}>
+            <div style={{padding: "15px"}}>
               <button onClick={(e) => this.topPrice()} className="btn btn-info" style={{margin: "5px"}}>Top Price</button>
               <button onClick={(e) => this.recentAdded()} className="btn btn-info" style={{margin: "5px"}}>Recent Added</button>
             </div>
