@@ -32,3 +32,16 @@ th, td{
   padding-left: 2px;
   padding-right: 3px;
 }
+
+.nav {
+  color: white;
+  padding: 5px;
+}
+
+.nav:hover {
+  background-color: rgb(188, 188, 248);
+}
+
+.modal-header {
+  background-color:#B39BC8;
+}

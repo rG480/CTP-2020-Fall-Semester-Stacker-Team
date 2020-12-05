@@ -47,8 +47,8 @@ class ItemExpanded extends React.Component {
         if (this.props.user && this.props.user.id === this.props.list.OwnderId) {
             addedButtons = (
                 <div >
-                    <button className="btn btn-primary" style={{margin: "5px"}} onClick={this.toggleModal}>Edit</button>
-                    <button className="btn btn-primary" style={{margin: "5px"}} onClick={this.confirmDelete}>Delete</button>
+                    <button className="btn btn-secondary" style={{margin: "5px"}} onClick={this.toggleModal}>Edit</button>
+                    <button className="btn btn-danger" style={{margin: "5px"}} onClick={this.confirmDelete}>Delete</button>
                 </div>
             );
         }
@@ -70,7 +70,7 @@ class ItemExpanded extends React.Component {
         return (
             <Modal size='sm' show={this.props.show} onHide={this.props.hide}>
             <Modal.Header closeButton>
-                <Modal.Title>{ this.props.list.name }</Modal.Title>
+                <Modal.Title >{ this.props.list.name }</Modal.Title>
             </Modal.Header>
             <Modal.Body>
             <ul className="list-group list-group-flush">

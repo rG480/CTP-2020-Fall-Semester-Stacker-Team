@@ -62,8 +62,8 @@ componentDidUpdate(prevProps) {
         
             <LandingPageBox list={ this.state.itemsList } />
             <div style={{padding: "0px"}}>
-              <button onClick={(e) => this.topPrice()} className="btn btn-primary" style={{margin: "5px"}}>Top Price</button>
-              <button onClick={(e) => this.recentAdded()} className="btn btn-primary" style={{margin: "5px"}}>Recent Added</button>
+              <button onClick={(e) => this.topPrice()} className="btn btn-secondary" style={{margin: "5px"}}>Top Price</button>
+              <button onClick={(e) => this.recentAdded()} className="btn btn-secondary" style={{margin: "5px"}}>Recent Added</button>
             </div>
           </div>
       )

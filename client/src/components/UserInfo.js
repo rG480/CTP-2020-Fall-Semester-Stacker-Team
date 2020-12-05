@@ -64,7 +64,7 @@ class UserInfo extends React.Component {
      
     return (
       <div style={{width: "200px", padding: "20px"}}>
-        <div className="card" >
+        <div className="card" style={{background: "white"}}>
           <img className="card-img-top" src={this.props.list.imageURL} alt="userImage.jpg"></img>
           <ul className="list-group list-group-flush">
             <li className="list-group-item"> {this.props.list.userName } </li>
@@ -76,7 +76,7 @@ class UserInfo extends React.Component {
             <p>badge</p>
             <p>badge</p>
             <AddItemModal reloadContent={this.props.reloadContent} edit={false}show={this.state.showModal} hide= {this.toggleModal} submission={this.submit}></AddItemModal>
-            <button onClick={this.toggleModal} className="btn btn-primary">Add Item</button>
+            <button onClick={this.toggleModal} className="btn btn-info">Add Item</button>
           </div>
         </div>
       </div>
