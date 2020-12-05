@@ -63,7 +63,7 @@ class UserInfo extends React.Component {
      console.log(this.props.list)
      
     return (
-      <div style={{width: "200px", padding: "20px"}}>
+      <div style={{width: "300px", padding: "20px"}}>
         <div className="card" style={{background: "white"}}>
           <img className="card-img-top" src={this.props.list.imageURL} alt="userImage.jpg"></img>
           <ul className="list-group list-group-flush">
