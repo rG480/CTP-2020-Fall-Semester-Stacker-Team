@@ -9,7 +9,7 @@ import {
 } from 'react-router-dom';
 function AboutUsPage(props) {
   return (
-    <div >
+    <div style={{padding: "50px"}}>
       {/* Center All */}
       {/* Bold , Larger Font*/}
       <h2 className="about-header"> <b>Welcome to Cellar</b></h2>
@@ -25,6 +25,7 @@ function AboutUsPage(props) {
       Users can also browse the  <Link to={{pathname:'/displayUsers'}}> collections of other users. </Link>
       <br></br>
       </div>
+      
       
       
       </p>

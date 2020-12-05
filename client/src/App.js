@@ -24,14 +24,13 @@ document.body.style = 'background-color: aliceblue';
     super(props)
     this.state={
       showModal:false,
-      auth:false
+      auth:false,
     }
     this.toggler = this.toggleModal.bind(this)
     this.setAuthen= this.setAuth.bind(this)
     this.reloadContent= this.reloadContent(this)
   }
   toggleModal(){
-   
      this.setState({
       showModal:this.state.showModal ? false : true
      });
@@ -93,12 +92,12 @@ render(){
       <LoginModal reloadContent={this.reloadContent} setAuth={this.setAuthen} show={this.state.showModal} hide={this.toggler}></LoginModal>
     <nav className="navbar navbar-expand-sm bg shadow mb-3" style={{background: "#B39BC8"}}>
      
-      <Link className="navbar-brand btn nav"  exact to="/landing">Home </Link>
+      <Link className="navbar-brand btn nav"  exact to="/landing"><img className="icon" style={{maxWidth: "45px", paddingRight: "10px"}} src={require('./image1.png')}></img>Cellar</Link>
       {/* Might change this to the site's name later.*/}
       <ul className="navbar-nav mr-auto">
         {inv}
         <li className="nav-item">
-          <NavLink className="nav-link btn nav"  exact to="/displayUsers">
+          <NavLink className="nav-link btn nav" style={{marginBottom: "3px"}} exact to="/displayUsers">
            Users
           </NavLink>
         </li>
@@ -109,10 +108,11 @@ render(){
         </li>
        
       </ul>
-      <ul className="navbar-nav">
+      <ul className="navbar-nav" style={{marginBottom: "3px"}}>
         <li className="nov-item">
           {button}
         </li>
+        
       </ul>
     </nav>
     </div>

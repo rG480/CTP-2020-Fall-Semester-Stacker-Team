@@ -16,7 +16,7 @@ class GalleryItemBox extends React.Component {
             }
         }
         return (
-            <div className="container">
+            <div className="container" style={{padding: "40px"}}>
                 <div className="row justify-content-center">
                     <div className="col">
                         
