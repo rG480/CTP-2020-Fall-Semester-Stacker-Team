@@ -3,7 +3,9 @@ import UserInfo from '../components/UserInfo';
 import ItemListBox from '../components/ItemListBox';
 import Loading from '../components/Loading'
 import ItemExpanded from '../components/ItemExpanded';
-
+import Container from 'react-bootstrap/Container'
+import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row'
 class InventoryGridPage extends React.Component {
   constructor(props){
     super(props)
@@ -53,16 +55,21 @@ class InventoryGridPage extends React.Component {
       }
       else {
         renderedContent=  (  
-        <div className="row flex-nowrap justify-content-md-center">
-        <div className="justify-left">
-            <UserInfo reloadContent ={this.refreshPage} list={ this.state.userList[0] }/>
+        <Container>
+        <Row>
+        <Col sm={4}>
+        <div style={{textAlign:"center"}}>
+        <h1 style={{wordWrap:"break-word"}}>Welcome, {this.state.userList[0].userName}</h1> 
+        <UserInfo reloadContent ={this.refreshPage} list={ this.state.userList[0] }/>
         </div>
-        <div style={{maxWidth: "1000px"}}>
-  
-            <ItemListBox reloadContent={this.refreshPage} list={this.state.itemsList} user={this.state.userList} refreshPage ={this.refreshPage}/>
-         {/*    <ItemExpanded list={this.state.itemsList[0]}/> */}
-        </div>
-    </div>
+        </Col>
+        <Col sm={8}>
+        
+        <ItemListBox reloadContent={this.refreshPage} list={this.state.itemsList} user={this.state.userList} refreshPage ={this.refreshPage}/>
+        
+        </Col>
+        </Row>
+        </Container>
     )
     
       }

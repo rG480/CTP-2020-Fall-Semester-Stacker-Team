@@ -53,10 +53,8 @@ class LoginModal extends React.Component{
         if (this.state.activeTab===0){
           renderThis=(<div>
           <Modal.Header closeButton>
-            <Modal.Title>Login</Modal.Title>
-           
-            
-          </Modal.Header>
+            <Modal.Title >Login</Modal.Title>
+         </Modal.Header>
           <Modal.Body>
           <div className="container">
             <form>
