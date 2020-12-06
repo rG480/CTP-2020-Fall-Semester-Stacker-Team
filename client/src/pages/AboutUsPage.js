@@ -32,9 +32,19 @@ function AboutUsPage(props) {
       <h3 className="about-sub-header"> <b>The Team</b></h3><Container>
         <br/>
         <Row>
-          <Col><h4>Chris Chromak</h4></Col>
-          <Col><h4>Roberto Garcia</h4></Col>
-          <Col><h4>Kenneth Hill</h4></Col>
+          <Col>
+            <h4>Chris Chromak</h4>
+            <img className="about-image" src={require('../chrisChromakSmall.jpg')}></img>
+            <p>I'm a Computer Science major at <br></br>Queens College. Go knights! (confusing, right?) <br></br>Graduating Fall, 2021 - hire me!</p>
+          </Col>
+          <Col>
+            <h4>Roberto Garcia</h4>
+            <img className="about-image" src={require('../chrisChromakSmall.jpg')}></img>
+          </Col>
+          <Col>
+           <h4>Kenneth Hill</h4>
+            <img className="about-image" src={require('../chrisChromakSmall.jpg')}></img>
+          </Col>
         </Row>
       </Container>
     

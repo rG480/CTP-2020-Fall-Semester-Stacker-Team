@@ -73,6 +73,15 @@ h4 {
 
 }
 
+.about-image {
+  max-width: 250px;
+  padding-top: 0px;
+  border-radius: 100%;
+  border:  #7e6d8e;
+  border-style: solid;
+  border-width: 1px;
+}
+
 
 
 .nav:focus, .item:focus {
