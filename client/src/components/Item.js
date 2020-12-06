@@ -28,7 +28,7 @@ class Item extends React.Component {
             currName =this.props.itemContent.name;
         }
         return (
-            <div className="" style={{maxWidth: "250px",  padding: "10px"}}>
+            <div className="" style={{maxWidth: "250px",  padding: "10px",}}>
             <div className="shadow" style={{background: "white"}} >
                 <button onClick={this.toggleModal} className="btn btn-lite item">  <img  width="200px" height="175px" src={this.props.itemContent.imageURL} alt="castle.jpg"></img> </button>
                 <div className="card-footer small text-muted">

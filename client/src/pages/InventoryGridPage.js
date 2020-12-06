@@ -63,7 +63,7 @@ class InventoryGridPage extends React.Component {
         <Row>
         <Col sm={4}>
         <div style={{textAlign:"center"}}>
-        <h1 style={{wordWrap:"break-word"}}>Welcome, {this.state.userList[0].userName}</h1> 
+        <h2 style={{wordWrap:"break-word"}}>Welcome, {this.state.userList[0].userName}</h2> 
         <UserInfo reloadContent ={this.refreshPage} list={ this.state.userList[0] }/>
         </div>
         </Col>
