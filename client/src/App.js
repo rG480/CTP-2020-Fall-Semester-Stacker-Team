@@ -97,7 +97,7 @@ render(){
       <ul className="navbar-nav mr-auto">
         {inv}
         <li className="nav-item">
-          <NavLink className="nav-link btn nav" style={{marginBottom: "3px"}} exact to="/displayUsers">
+          <NavLink className="nav-link btn nav" style={{marginBottom: "3px"}} exact to="/users">
            Users
           </NavLink>
         </li>
@@ -158,7 +158,7 @@ class App extends React.Component {
                 <Route path="/yourCollection" component={InventoryPage}/>
                 <Route path="/aboutUs" component={AboutUsPage} />
                 <PrivateRoute path="/inventoryGridPage" component={InventoryGridPage}/>
-                <Route path="/displayUsers" render={props => ( <AllUsersDisplayPage {...props} login={this.state.login} /> )}/>
+                <Route path="/users" render={props => ( <AllUsersDisplayPage {...props} login={this.state.login} /> )}/>
                 <Route path="/userGallery/" component={PublicGalleryPage}/>
               </Switch>
             </div>

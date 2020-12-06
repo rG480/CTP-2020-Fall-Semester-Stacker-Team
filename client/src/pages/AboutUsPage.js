@@ -1,4 +1,7 @@
 import React from 'react';
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Container from 'react-bootstrap/Container'
 import { 
   BrowserRouter as Router, 
   Switch, 
@@ -16,19 +19,29 @@ function AboutUsPage(props) {
       <br></br>
       {/* Bold, Large Font */}
       <h3 className="about-sub-header"><b>What  is Cellar?</b></h3>
-      <p>
+      
       <div style={{padding:"20px"}}>
       Cellar is an easy to use inventory management system allowing you to track your collections and their details, including quantity, the price an item was purchased for, and the price of the item at the time it was added to your collection.
       <br></br>
       Cellar is a great way to track your items, with its simple, user friendly interface.
       <br></br>
-      Users can also browse the  <Link to={{pathname:'/displayUsers'}}> collections of other users. </Link>
+      Users can also browse the  <Link to={{pathname:'/users'}}> collections of other users. </Link>
       <br></br>
+      </div>
+      <div>
+      <h3 className="about-sub-header"> <b>The Team</b></h3><Container>
+        <br/>
+        <Row>
+          <Col><h4>Chris Chromak</h4></Col>
+          <Col><h4>Roberto Garcia</h4></Col>
+          <Col><h4>Kenneth Hill</h4></Col>
+        </Row>
+      </Container>
+    
       </div>
       
       
-      
-      </p>
+    
     </div>
     
   );

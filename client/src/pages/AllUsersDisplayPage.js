@@ -19,7 +19,6 @@ class AllUsersDisplayPage extends React.Component{
     componentDidUpdate(prevProps) {
  
         if(prevProps.login !== this.props.login) {
-          alert("yes")
          this.componentDidMount();
         }
       }
