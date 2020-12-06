@@ -63,7 +63,7 @@ class UserInfo extends React.Component {
      console.log(this.props.list)
      
     return (
-      <div style={{padding:"20px", }}>
+      <div style={{padding:"10px", }}>
         <div className="card" style={{background: "white",}}>
           <img className="card-img-top" src={this.props.list.imageURL} alt="userImage.jpg"></img>
           <ul className="list-group list-group-flush">
@@ -71,10 +71,8 @@ class UserInfo extends React.Component {
             <li class="list-group-item"> {this.props.list.userEmail} </li> 
           </ul>
           <div className="card-body">
-            <p>badge</p>
-            <p>badge</p>
-            <p>badge</p>
-            <p>badge</p>
+            <p>badges</p>
+    
             <AddItemModal reloadContent={this.props.reloadContent} edit={false}show={this.state.showModal} hide= {this.toggleModal} submission={this.submit}></AddItemModal>
             <button onClick={this.toggleModal} className="btn btn-info">Add Item</button>
           </div>

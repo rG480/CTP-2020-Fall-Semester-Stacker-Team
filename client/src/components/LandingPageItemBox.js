@@ -21,7 +21,7 @@ class LandingPageItemBox extends React.Component {
                     <div className="col">
                         
                     </div>
-                    <div className="col-12 row wrap justify-content-left">
+                    <div className="col-12 row wrap justify-content-center">
                         { box }
                     </div>
                     <div className="col">

@@ -66,7 +66,7 @@ class AddItemModal extends React.Component{
           throw new Error('Content validation');
         })
         .then(post => {
-          alert("Success!")
+          // alert("Success!")
           this.props.reloadContent();
           this.props.hide()
          
