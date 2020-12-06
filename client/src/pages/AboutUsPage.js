@@ -21,11 +21,11 @@ function AboutUsPage(props) {
       <h3 className="about-sub-header"><b>What  is Cellar?</b></h3>
       
       <div style={{padding:"20px"}}>
-      Cellar is an easy to use inventory management system allowing you to track your collections and their details, including quantity, the price an item was purchased for, and the price of the item at the time it was added to your collection.
+      Cellar is an easy to use inventory management system allowing you to track your collections and their details, including quantity,
       <br></br>
-      Cellar is a great way to track your items, with its simple, user friendly interface.
+      the price an item was purchased for, and the price of the item at the time it was added to your collection. Cellar is a great way  to
       <br></br>
-      Users can also browse the  <Link to={{pathname:'/users'}}> collections of other users. </Link>
+      track your items, with its simple, user friendly interface. Users can also browse the  <Link to={{pathname:'/users'}}> collections of other users. </Link>
       <br></br>
       </div>
       <div>
