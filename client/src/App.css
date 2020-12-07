@@ -60,9 +60,6 @@ h5 span, .showcase {
   
 }
 
-h4 {
-  color: #7e6d8e;
-}
 
 .itemList {
   padding-bottom: 20px;
@@ -76,7 +73,7 @@ h4 {
 .about-image {
   max-width: 250px;
   padding-top: 0px;
-  border-radius: 100%;
+  border-radius: 25%;
   border:  #7e6d8e;
   border-style: solid;
   border-width: 1px;

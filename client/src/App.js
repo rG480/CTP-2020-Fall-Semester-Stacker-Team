@@ -1,6 +1,7 @@
-import React, { Children } from 'react';
+import React from 'react';
 import { 
   BrowserRouter as Router, 
+  Redirect,
   Switch, 
   Route, 
   Link,
@@ -9,7 +10,6 @@ import {
 import './App.css';
 import LandingPage from './pages/LandingPage';
 import AboutUsPage from './pages/AboutUsPage';
-import InventoryPage from './pages/InventoryPage';
 import InventoryGridPage from './pages/InventoryGridPage';
 import LoginModal from './components/LoginModal'
 import PrivateRoute from './components/PrivateRoute';
@@ -41,14 +41,12 @@ signout(){
   
 }
 setAuth(login){
-  console.log("setAuth")
   if(login===true){
   this.setState({
     auth:true
   })
   auth.isAuthenticated=true;
   this.props.auth(true)
-  console.log(this.state.auth)
   }
   else if (login===false){
     this.setState({
@@ -64,7 +62,6 @@ reloadContent(){
   this.componentDidMount();
 }
 componentDidMount(){
-  console.log(auth.isAuthenticated)
   if (!this.state.auth){
     fetch('/api/amILoggedIn/').then((response) => {
       this.setAuth(true);
@@ -78,7 +75,7 @@ render(){
   if(this.state.auth){
      button = <button className="btn nav"  onClick={ e=>this.signout(e)}>Logout</button>
      inv =( <li className="nav-item">
-     <NavLink className="nav-link btn nav"  exact to="/inventoryGridPage">
+     <NavLink className="nav-link btn nav"  exact to="/yourCollection">
        Your Inventory
      </NavLink>
      </li>)
@@ -92,7 +89,7 @@ render(){
       <LoginModal reloadContent={this.reloadContent} setAuth={this.setAuthen} show={this.state.showModal} hide={this.toggler}></LoginModal>
     <nav className="navbar navbar-expand-sm bg shadow mb-3" style={{background: "#B39BC8"}}>
      
-      <Link className="navbar-brand btn nav"  exact to="/landing"><img className="icon" style={{maxWidth: "45px", paddingRight: "10px"}} src={require('./image1.png')}></img>Cellar</Link>
+      <Link className="navbar-brand btn nav"  exact to="/landing"><img className="icon" alt="logo.png"style={{maxWidth: "45px", paddingRight: "10px"}} src={require('./image1.png')}></img>Cellar</Link>
       {/* Might change this to the site's name later.*/}
       <ul className="navbar-nav mr-auto">
         {inv}
@@ -125,7 +122,7 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state={
-      login:"",
+      login:false,
     }
     this.comp= this.setLogin.bind(this)
   }
@@ -148,18 +145,19 @@ class App extends React.Component {
   render() {
     return (
       <div>
-       
         <Router>
           <Navigation  auth={this.comp}/>
           <div className="container-fluid text-center">
             <div className="row justify-content-center">
               <Switch>
-                <Route path="/landing" render={props => ( <LandingPage {...props} key={this.state.login} login={this.state.login} /> )}/>
-                <Route path="/yourCollection" component={InventoryPage}/>
+                <Route path="/landing" render={props => ( <LandingPage {...props} login={this.state.login} /> )}/>
                 <Route path="/aboutUs" component={AboutUsPage} />
-                <PrivateRoute path="/inventoryGridPage" component={InventoryGridPage}/>
+                <PrivateRoute path="/yourCollection" component={InventoryGridPage}/>
                 <Route path="/users" render={props => ( <AllUsersDisplayPage {...props} login={this.state.login} /> )}/>
                 <Route path="/userGallery/" component={PublicGalleryPage}/>
+                <Route exact path="/">
+                 <Redirect to="/landing" />
+               </Route>
               </Switch>
             </div>
           </div>

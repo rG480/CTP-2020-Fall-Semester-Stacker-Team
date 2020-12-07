@@ -1,5 +1,6 @@
 import React from 'react';
 import GalleryItemBox from '../components/GalleryItemBox';
+import Loading from '../components/Loading';
 class PublicGalleryPage extends React.Component {
     constructor(props){
       super(props)
@@ -18,8 +19,11 @@ class PublicGalleryPage extends React.Component {
      if(this.state.itemsList.length){
        renderedContent= (<div><GalleryItemBox list={this.state.itemsList}></GalleryItemBox></div>)
      }
-    else{
-        renderedContent= ( <div>Yo buddy</div>)
+    else if(Array.isArray(this.state.itemsList)&&this.state.itemsList.length===0){
+        renderedContent= ( <div><h1>This user doesn't seem to have any items on public display.</h1></div>)
+    }
+    else if (this.state.itemsList===''){
+      renderedContent= ( <div><Loading></Loading></div>)
     }
     return (
      renderedContent

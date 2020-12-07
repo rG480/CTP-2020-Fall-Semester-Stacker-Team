@@ -1,6 +1,6 @@
 import React from 'react';
 import LandingPageBox from '../components/LandingPageItemBox';
-import auth from '../services/auth';
+
 
 
 class LandingPage extends React.Component {
@@ -8,9 +8,8 @@ class LandingPage extends React.Component {
     super(props)
     this.state={
       itemsList:'',
-      test: 'recentAdded',
       buttonPressed: '',
-      login:'',
+      login:false,
     }
     this.topPrice = this.topPrice.bind(this);
     this.recentAdded = this.recentAdded.bind(this);
@@ -21,17 +20,17 @@ class LandingPage extends React.Component {
     fetch('/api/topPrice/')
     .then(res => res.json())
     .then(post => {
-  
       this.setState({itemsList:post, buttonPressed: 'topPrice'}) 
   })
   }
  }
 
  recentAdded () {
+  
    if (this.state.buttonPressed !== 'recentAdded') {
     fetch('/api/recentAdded/')
     .then(res => res.json())
-    .then(post => {
+    .then(post => { 
     this.setState({itemsList:post, buttonPressed: 'recentAdded'}) 
     })
   }
@@ -40,17 +39,21 @@ class LandingPage extends React.Component {
  componentDidMount() {
  
   this.setState({
-    login:this.props.login,
-    itemsList:''
+    itemsList:'',
   })
-  this.recentAdded();
+  fetch('/api/recentAdded/')
+    .then(res => res.json())
+    .then(post => {
+    this.setState({itemsList:post, buttonPressed: 'recentAdded'}) 
+  })
    
 }
 componentDidUpdate(prevProps) {
  
   if(prevProps.login !== this.props.login) {
-   this.componentDidMount();
-  }
+  
+  this.componentDidMount();
+ }
 }
 
   render () {

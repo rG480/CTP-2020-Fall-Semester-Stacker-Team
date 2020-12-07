@@ -2,14 +2,7 @@ import React from 'react';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
-import { 
-  BrowserRouter as Router, 
-  Switch, 
-  Route, 
-  Link,
-  NavLink,
-  generatePath
-} from 'react-router-dom';
+import {  BrowserRouter as Link } from 'react-router-dom';
 function AboutUsPage(props) {
   return (
     <div style={{padding: "50px"}}>
@@ -34,16 +27,18 @@ function AboutUsPage(props) {
         <Row>
           <Col>
             <h4>Chris Chromak</h4>
-            <img className="about-image" src={require('../chrisChromakSmall.jpg')}></img>
+            <img className="about-image" alt="chris.jpg" src={require('../images/chrisChromakSmall.jpg')}></img>
             <p>I'm a Computer Science major at <br></br>Queens College. Go knights! (confusing, right?) <br></br>Graduating Fall, 2021 - hire me!</p>
           </Col>
           <Col>
             <h4>Roberto Garcia</h4>
-            <img className="about-image" src={require('../chrisChromakSmall.jpg')}></img>
+            <img className="about-image" alt="roberto.jpg" src={require('../images/rGarcia.jpg')}></img>
+            <p>Hi, I'm a graduating senior at the College of Staten Island. I like designing the logic that delivers content, and my main interests at the moment are in Android and Web development.</p>
           </Col>
           <Col>
            <h4>Kenneth Hill</h4>
-            <img className="about-image" src={require('../chrisChromakSmall.jpg')}></img>
+            <img className="about-image" alt="kenneth.jpg" src={require('../images/Headshotlow_res.jpeg')}></img>
+            <p>I'm also a CS major at Queens College. Graduating Fall 2020</p>
           </Col>
         </Row>
       </Container>
