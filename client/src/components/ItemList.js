@@ -3,15 +3,13 @@ import Item from './Item';
 
 
 class ItemList extends React.Component {
-    constructor(props){
-        super(props)
-    }
+    
     render() {
         let List = []
         for (let i = 0; i < this.props.items.length; i++) {
             if (this.props.category === this.props.items[i].category) {
                 List.push(
-                <Item reloadContent={this.props.reloadContent} itemContent={this.props.items[i]} user={this.props.user} refreshPage={this.props.refreshPage}/>
+                <Item key={i+i%this.props.items.length}reloadContent={this.props.reloadContent} itemContent={this.props.items[i]} user={this.props.user} refreshPage={this.props.refreshPage}/>
             );
             }
             

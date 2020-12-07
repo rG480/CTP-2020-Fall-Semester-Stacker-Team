@@ -22,6 +22,7 @@ class ItemListBox extends React.Component {
    
     render () {
         let uniqueCategories = [];
+        
         for(let i = 0; i < this.props.list.length; i++) {
             if (!uniqueCategories.includes(this.props.list[i].category)) {
                 uniqueCategories.push(this.props.list[i].category)
@@ -30,7 +31,7 @@ class ItemListBox extends React.Component {
         let itemListBox = [];
         for(let i = 0; i < uniqueCategories.length; i++) {
             itemListBox.push(
-                <ItemList reloadContent={this.props.reloadContent} items={this.props.list} user={this.props.user} refreshPage={this.props.refreshPage} category={uniqueCategories[i]}/>
+                <ItemList key={i+i%uniqueCategories.length} reloadContent={this.props.reloadContent} items={this.props.list} user={this.props.user} refreshPage={this.props.refreshPage} category={uniqueCategories[i]}/>
             )
         }
         

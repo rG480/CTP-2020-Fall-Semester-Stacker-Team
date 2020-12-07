@@ -9,9 +9,7 @@ import {
 } from 'react-router-dom';
 
 class UserInfoPublic extends React.Component {
-    constructor(props) {
-        super(props)
-    }
+   
 
     render () {
        return (

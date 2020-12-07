@@ -7,11 +7,19 @@ const op = sq.Op;
 
 router.get('/',(req,res) => {
     if(req["user"]){
-        Users.findAll({where: {id:{[op.not]:req["user"].id}}})
+        Users.findAll({attributes: [
+         "userName",
+         "userEmail",
+         "imageURL"
+         ],where: {id:{[op.not]:req["user"].id}}})
         .then(user => res.status(200).json(user));
     }
     else{
-        Users.findAll({})
+        Users.findAll({attributes: [
+            "userName",
+            "userEmail",
+            "imageURL"
+            ]})
         .then(user => res.status(200).json(user));
     }
 });

@@ -12,8 +12,7 @@ class TableViewModal extends React.Component{
     }
     
     render(){
-        console.log(this.props.items)
-        
+       
     return( 
       <Modal size="xl" show={this.props.show} onHide={this.props.hide} >
         <Modal.Header closeButton>
