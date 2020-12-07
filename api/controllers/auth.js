@@ -31,10 +31,8 @@ router.post('/login',
     // If this function gets called, authentication was successful.
     // `req.user` contains the authenticated user.
    // Users.findAll({where:{userEmail:req.user.userEmail}}).then(user=>console.log(user))
-    console.log(req.user.id)
-    req.session.user = req.user.id;
-    
-    res.json(req.user);
+    req.session.user = req.user.id;  
+    res.json(req.user.userEmail);
   });
 
   

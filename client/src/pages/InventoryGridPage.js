@@ -2,7 +2,6 @@ import React from 'react';
 import UserInfo from '../components/UserInfo';
 import ItemListBox from '../components/ItemListBox';
 import Loading from '../components/Loading'
-import ItemExpanded from '../components/ItemExpanded';
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
@@ -17,7 +16,6 @@ class InventoryGridPage extends React.Component {
   }
   
  refreshPage(){
-   console.log("reload")
    this.componentDidMount()
   
  }

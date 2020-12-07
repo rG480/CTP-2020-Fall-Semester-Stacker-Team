@@ -2,8 +2,6 @@ const auth = {
     isAuthenticated: false,
     user: null,
     authenticate(email, password) {
-        console.log(email)
-        console.log(password)
       return fetch('/api/auth/login', { 
         method: 'POST',
         body: JSON.stringify({ email, password }),
@@ -21,7 +19,6 @@ const auth = {
         .then((body) => {
           this.isAuthenticated = true;
           this.user = body.userEmail;
-          console.log(body);
           return body;
         });
     },

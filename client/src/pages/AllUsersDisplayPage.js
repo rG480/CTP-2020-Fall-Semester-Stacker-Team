@@ -7,13 +7,14 @@ class AllUsersDisplayPage extends React.Component{
         super(props);
         this.state={
             usersList:'',
+         
         }
     }
 
     componentDidMount(){
+        
         fetch('/api/userspage/').then(res=>{return res.json()}).then(
-            users=>{this.setState({usersList:users})
-            console.log(this.state.usersList)}
+            users=>{this.setState({usersList:users})}
         )
     }
     componentDidUpdate(prevProps) {
@@ -32,7 +33,7 @@ class AllUsersDisplayPage extends React.Component{
        else{
           let userList = []
           for(let i=0;i<this.state.usersList.length;i++){
-             userList.push(<UserInfoPublic list={ this.state.usersList[i] }/>)
+             userList.push(<UserInfoPublic key={i+i%this.state.usersList.length} list={ this.state.usersList[i] }/>)
           }
           renderedContent= (userList)
        }

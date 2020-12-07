@@ -2,16 +2,14 @@ import React from "react";
 import Item from "./Item";
 
 class GalleryItemBox extends React.Component {
-    constructor(props) {
-        super(props)
-    }
+
 
     render () {
         let box = []
         for (let i = 0; i < this.props.list.length; i++) {
             if (this.props.list[i] != null) {
             box.push(
-                <Item  itemContent={this.props.list[i]}/>
+                <Item key={i+i%this.props.list.length} itemContent={this.props.list[i]}/>
             );
             }
         }

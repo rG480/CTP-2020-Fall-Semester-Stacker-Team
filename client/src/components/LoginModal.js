@@ -35,7 +35,7 @@ class LoginModal extends React.Component{
       }
       signup=(e)=>{
         let{username,email,password} =this.state;
-        console.log(this.state.image[0]);
+       
         auth.signin(this.state.image[0],username, email, password)
         .then((user) => {
          
@@ -112,7 +112,7 @@ class LoginModal extends React.Component{
             </form>
          </Modal.Body>
          <Modal.Footer>
-         <Button variant="info" size="lg" block  onClick={e=>this.login()} >Sign up</Button>
+         <Button variant="info" size="lg" block  onClick={e=>this.signup()} >Sign up</Button>
        </Modal.Footer>
        </div>)
       }

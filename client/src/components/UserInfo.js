@@ -30,7 +30,7 @@ class UserInfo extends React.Component {
       description: desc,
       pub: pub
     }
-    console.log(JSON.stringify(jsonToSend))
+   
     fetch("/api/inv/", {
       method: 'POST',
       credentials: 'include',
@@ -60,7 +60,7 @@ class UserInfo extends React.Component {
       
   }
     render () {
-     console.log(this.props.list)
+   
      
     return (
       <div style={{padding:"10px", }}>
@@ -68,7 +68,7 @@ class UserInfo extends React.Component {
           <img className="card-img-top" src={this.props.list.imageURL} alt="userImage.jpg"></img>
           <ul className="list-group list-group-flush">
             <li className="list-group-item"> {this.props.list.userName } </li>
-            <li class="list-group-item"> {this.props.list.userEmail} </li> 
+            <li className="list-group-item"> {this.props.list.userEmail} </li> 
           </ul>
           <div className="card-body">
             <p>badges</p>
