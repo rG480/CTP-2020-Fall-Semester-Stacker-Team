@@ -103,9 +103,6 @@ render(){
             About Us
           </NavLink>
         </li>
-<<<<<<< HEAD
-        <button onClick={props.toggler}>login</button>
-=======
        
       </ul>
       <ul className="navbar-nav" style={{marginBottom: "3px"}}>
@@ -113,7 +110,6 @@ render(){
           {button}
         </li>
         
->>>>>>> 1a1c7f2035c5648ef13688edcc162e99e326a81f
       </ul>
     </nav>
     </div>
@@ -124,24 +120,6 @@ render(){
 
 class App extends React.Component {
   constructor(props){
-<<<<<<< HEAD
-    super(props)
-    this.state={
-      showModal:false
-    }
-    this.toggleModal = this.handleSelect.bind(this)
-  }
-  handleSelect(){
-    console.log(this.state.showModal)
-    this.setState({
-      showModal: this.state.showModal ? false : true
-    }
-
-    )
-    console.log(this.state.showModal)
-    if (this.state.showModal===true){
-      alert("Nice")
-=======
     super(props);
     this.state={
       login:false,
@@ -162,14 +140,13 @@ class App extends React.Component {
         login:false,
       })
      
->>>>>>> 1a1c7f2035c5648ef13688edcc162e99e326a81f
     }
   }
   render() {
     return (
       <div>
         <Router>
-          <Navigation toggler={this.toggleModal}/>
+          <Navigation  auth={this.comp}/>
           <div className="container-fluid text-center">
             <div className="row justify-content-center">
               <Switch>
