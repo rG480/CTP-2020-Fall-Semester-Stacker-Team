@@ -47,7 +47,6 @@ class AddItemModal extends React.Component{
         pub: this.state.pub
       } 
       const formData = new FormData();
-      console.log(this.state.image[0])
       formData.append("image", this.state.image[0]);
       formData.append("json",JSON.stringify(jsonToSend));
       fetch("/api/inv/", {
