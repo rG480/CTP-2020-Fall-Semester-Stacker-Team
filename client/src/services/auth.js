@@ -11,9 +11,10 @@ const auth = {
       })
         .then((response) => {
           if(!response.ok) {
+            alert("Login Failed");
             throw new Error('Login Failed');
+          
           }
-  
           return response.json();
         })
         .then((body) => {

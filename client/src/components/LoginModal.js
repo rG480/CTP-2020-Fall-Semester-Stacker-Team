@@ -60,12 +60,12 @@ class LoginModal extends React.Component{
             <form>
               Email Address:
               <br/>
-              <input type="text" onChange={e=>this.setState({email:e.target.value})} />
+              <input type="text" value={this.state.email} onChange={e=>this.setState({email:e.target.value})} />
               <br/>
              
               Password:
               <br/>
-              <input type="password" onChange={e=>this.setState({password:e.target.value})}/>
+              <input type="password" value={this.state.password} onChange={e=>this.setState({password:e.target.value})}/>
               <br/>
              <Row className= "align-items-center" ><Col><p>Don't have an account?</p></Col> <Col><Button  variant="link" onClick={e=>{this.setState({activeTab:1})}}>sign up</Button></Col> </Row>
             </form>
@@ -102,7 +102,7 @@ class LoginModal extends React.Component{
              
               Password:
               <br/>
-              <input type="password" onChange={e=>this.setState({password:e.target.value})}/>
+              <input type="password" value={this.state.password} onChange={e=>this.setState({password:e.target.value})}/>
               <br/>
               Profile Image:
               <br/>
