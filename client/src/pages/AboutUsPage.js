@@ -28,8 +28,7 @@ function AboutUsPage(props) {
           <Col>
             <h4>Chris Chromak</h4>
             <img className="about-image" alt="chris.jpg" src={require('../images/chrisChromakSmall.jpg')}></img>
-            <p>I'm a Computer Science major at <br></br>Queens College. Go knights! <br>
-            </br>(confusing, right?) I'm Graduating <br></br>Fall, 2021 - hire me!</p>
+            <p>Aspiring Software Engineer with experience in several languages. Currently a computer science major at Queens College building upon my technical, analytical, and programming skills. Go knights!</p>
           </Col>
           <Col>
             <h4>Roberto Garcia</h4>
