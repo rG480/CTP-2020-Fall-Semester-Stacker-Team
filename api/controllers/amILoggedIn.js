@@ -6,7 +6,7 @@ router.get('/', (req, res) => {
         res.status(200).json({'title':true})
       }
       else{
-          res.status(201)
+          res.status(201).json({'title':false})
       }
 });
 

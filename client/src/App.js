@@ -64,7 +64,7 @@ reloadContent(){
 componentDidMount(){
   if (!this.state.auth){
     fetch('/api/amILoggedIn/').then((response) => {
-      this.setAuth(true);
+      this.setAuth(response.title);
       }
     )
   }
