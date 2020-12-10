@@ -5,8 +5,9 @@ const sq = require('sequelize');
 const { Inventory } = db;
 const op = sq.Op;
 router.get('/', (req,res) => {
-   
-    if (req["user"]) {
+    let loggedin = req.query.login
+    console.log(req.query)
+    if (loggedin==='true') {
       
         let id = req["user"].id; 
         console.log(req["user"].id + " recentAdded")
