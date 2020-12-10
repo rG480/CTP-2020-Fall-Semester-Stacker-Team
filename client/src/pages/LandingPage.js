@@ -51,7 +51,6 @@ class LandingPage extends React.Component {
 componentDidUpdate(prevProps) {
  
   if(prevProps.login !== this.props.login) {
-  alert("Yes")
   this.componentDidMount();
  }
 }

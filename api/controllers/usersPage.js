@@ -6,7 +6,8 @@ const { Users } = db;
 const op = sq.Op;
 
 router.get('/',(req,res) => {
-    if(req["user"]){
+
+    if(req.query.login==='true'){
         Users.findAll({attributes: [
          "userName",
          "userEmail",

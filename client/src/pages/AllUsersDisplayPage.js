@@ -13,7 +13,8 @@ class AllUsersDisplayPage extends React.Component{
 
     componentDidMount(){
         
-        fetch('/api/userspage/').then(res=>{return res.json()}).then(
+        fetch('/api/userspage/?'+new URLSearchParams({login:this.props.login}))
+        .then(res=>{return res.json()}).then(
             users=>{this.setState({usersList:users})}
         )
     }
