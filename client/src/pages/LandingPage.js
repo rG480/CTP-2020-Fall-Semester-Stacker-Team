@@ -44,6 +44,7 @@ class LandingPage extends React.Component {
   fetch('/api/recentAdded/')
     .then(res => res.json())
     .then(post => {
+   
     this.setState({itemsList:post, buttonPressed: 'recentAdded'}) 
   })
    
@@ -51,7 +52,6 @@ class LandingPage extends React.Component {
 componentDidUpdate(prevProps) {
  
   if(prevProps.login !== this.props.login) {
-  
   this.componentDidMount();
  }
 }
