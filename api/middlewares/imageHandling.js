@@ -5,7 +5,7 @@ const streamifier = require('streamifier')
 
 
  let streamUpload = (type,file) => {
-    console.log(file)
+   //type determines which folder the image file gets saved to upon uploading.
     return new Promise((resolve, reject) => {
         let stream = cloudinary.uploader.upload_stream( {folder: type},
           (error, result) => {
@@ -16,7 +16,6 @@ const streamifier = require('streamifier')
             }
           }
         );
-
        streamifier.createReadStream(file.buffer).pipe(stream);
     });
 };
@@ -25,11 +24,12 @@ const streamifier = require('streamifier')
     return (result);
 }
 let del= async function del(id) {
+    //we must use the image id supplied by cloudinary and saved in our db to delete any hosted images. 
     let result= await cloudinary.uploader.destroy(id,function(result) { console.log(result) });
    
 }
 
-module.exports.upload = uload;
+module.exports.upload= uload;
 module.exports.delete=del;
 
 

@@ -5,6 +5,7 @@
     "database": "app2019_development",
     "host": "127.0.0.1",
     "dialect": "postgres"
+    
   },
   "test": {
     "username": "ctp_user",
@@ -15,6 +16,12 @@
   },
   "production": {
     "use_env_variable": "DATABASE_URL",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "ssl":true,
+    "dialectOptions":{
+       "ssl":{
+          "require":true
+       }
+    }
   }
 }

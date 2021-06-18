@@ -47,6 +47,8 @@ if(process.env.NODE_ENV==='production') {
 // update DB tables based on model updates. Does not handle renaming tables/columns
 // NOTE: toggling this to true drops all tables (including data)
 db.sequelize.sync({ force: false});
+
+//configure cloudinary with our particular cloud's details.
 cloudinary.config({ 
   cloud_name: process.env.CLOUD_NAME, 
   api_key: process.env.API_KEY,

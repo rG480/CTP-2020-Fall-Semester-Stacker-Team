@@ -8,16 +8,19 @@ const upload = multer();
 const img= require('../middlewares/imageHandling').upload;
 const del= require('../middlewares/imageHandling').delete;
 
-
+//get all of user's inventory items regardless of whether they are public or private. this is for their own
+//inventory, not a public page.
 router.get('/',passport.isAuthenticated(), (req,res) => {
     Inventory.findAll({where:{OwnerId: req["user"].id}, order: [[ 'createdAt' , 'DESC']]})
     .then(inv => res.json(inv));
 });
 
-
+//gets all public flagged items associated with a particular user account
 router.get('/:email', (req,res) => {
-  Users.findAll({ raw: true,attributes: ['id'],where:{userEmail:req.params.email}}).then( user=>
-    Inventory.findAll({where:{OwnerId:user[0].id,public:true}, order: [[ 'createdAt' , 'DESC']]})
+  //first the email supplied with the request is used to get the user's primary key
+  Users.findOne({ raw: true,attributes: ['id'],where:{userEmail:req.params.email}}).then( user=>
+    //all the user's public items are then retrieved using this key
+    Inventory.findAll({where:{OwnerId:user.id,public:true}, order: [[ 'createdAt' , 'DESC']]})
     ).then(inv => res.json(inv));
 
 });
